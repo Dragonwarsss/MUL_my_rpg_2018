@@ -33,4 +33,8 @@ tests_run:
 	cd unit_tests && ./test
 	gcovr
 
+init:
+	@git remote set-url --add --push origin git@git.epitech.eu:/paul.naudin@epitech.eu/MUL_my_rpg_2018
+	@git remote set-url --add --push origin git@github.com:Dragonwarsss/MUL_my_rpg_2018
+
 .PHONY: all clean fclean re tests_run
