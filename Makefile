@@ -5,12 +5,14 @@
 ## make
 ##
 
-CC	=	gcc -I include
+CC	=	gcc -I include -g3
 
 NAME	=	my_rpg
 
 SRCS	=	src/main.c		\
 		src/init.c		\
+		src/create_ll_menu.c	\
+		src/change_scene.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 

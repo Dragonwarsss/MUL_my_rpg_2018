@@ -15,5 +15,16 @@ game_t *init_game(void)
 
     if (!g)
         return (NULL);
+    g->sc = malloc(sizeof(scene_t*) * 5);
+    if (!g->sc)
+        return (NULL);
+    for (int i = 0; i != 4; i += 1) {
+        g->sc[i] = malloc(sizeof(scene_t));
+        if (!g->sc[i])
+            return (NULL);
+    }
+    g->sc[0]->ll_sprite = create_ll_menu();
+    if (!g->sc[0]->ll_sprite)
+        return (NULL);
     return (g);
 }

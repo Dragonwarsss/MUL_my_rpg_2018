@@ -5,15 +5,40 @@
 ** my.h
 */
 
+#include <SFML/Graphics.h>
+
 #ifndef my_h_
 #define my_h_
 
 typedef struct s_game game_t;
+typedef struct s_scene scene_t;
+typedef struct s_sprite sprite_t;
+
+struct s_sprite {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfIntRect rect;
+    int button;
+    void (*ptr)(void);
+    sprite_t *next;
+};
+
+struct s_scene {
+    sprite_t *ll_sprite;
+};
 
 struct s_game {
-    int i;
+    scene_t **sc;
+    int scene;
 };
 
 game_t *init_game(void);
+sprite_t *create_ll_menu(void);
+
+void change_scene_to_play(void);
+void change_scene_to_settings(void);
+
+int scene;
 
 #endif
