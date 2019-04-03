@@ -7,7 +7,7 @@
 
 CC	=	gcc -Iinclude
 
-NAME	=	my_defender
+NAME	=	my_rpg
 
 SRCS	=	src/main.c		\
 
