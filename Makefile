@@ -5,7 +5,7 @@
 ## make
 ##
 
-CC	=	gcc -Iinclude
+CC	=	gcc -I include
 
 NAME	=	my_rpg
 
@@ -13,7 +13,7 @@ SRCS	=	src/main.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -pedantic -lcsfml-graphics
+CFLAGS	=	-Wall -Wextra -lcsfml-graphics
 
 all:	$(NAME)
 
