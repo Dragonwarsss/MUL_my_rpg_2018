@@ -10,6 +10,7 @@ CC	=	gcc -I include
 NAME	=	my_rpg
 
 SRCS	=	src/main.c		\
+		src/init.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 
