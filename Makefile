@@ -13,6 +13,8 @@ SRCS	=	src/main.c		\
 		src/init.c		\
 		src/create_ll_menu.c	\
 		src/change_scene.c	\
+		src/select_scene.c	\
+		src/display_menu.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 

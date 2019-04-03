@@ -31,6 +31,7 @@ int gameloop(void)
         sfRenderWindow_clear(window, sfBlack);
         while (sfRenderWindow_pollEvent(window, &event))
             event_handler(&event, window, g);
+        select_scene(g, window);
     }
     return (0);
 }

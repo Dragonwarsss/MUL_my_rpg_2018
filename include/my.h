@@ -39,6 +39,10 @@ sprite_t *create_ll_menu(void);
 void change_scene_to_play(void);
 void change_scene_to_settings(void);
 
+void select_scene(game_t *g, sfRenderWindow *window);
+
+void display_menu(scene_t *sc, sfRenderWindow *window);
+
 int scene;
 
 #endif

@@ -13,6 +13,7 @@ game_t *init_game(void)
 {
     game_t *g = malloc(sizeof(game_t));
 
+    scene = 0;
     if (!g)
         return (NULL);
     g->sc = malloc(sizeof(scene_t*) * 5);
