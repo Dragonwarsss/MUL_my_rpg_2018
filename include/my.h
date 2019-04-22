@@ -11,31 +11,30 @@
 #include "macros.h"
 #include <SFML/Graphics.h>
 
-typedef struct game_s game_t;
-typedef struct scene_s scene_t;
-typedef struct sprite_s sprite_t;
-typedef enum scene_id_e screen_id_t;
+typedef struct s_game game_t;
+typedef struct s_scene scene_t;
+typedef struct s_sprite sprite_t;
 
-struct sprite_s {
+typedef enum scene_id {
+    sc_menu,
+    sc_skill_tree,
+} screen_id_t;
+
+struct s_sprite {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
     sfIntRect rect;
     int button;
-    void (*ptr)(game_t **game);
+    void (*ptr)(game_t *game);
     sprite_t *next;
 };
 
-enum scene_id_e {
-    sc_menu,
-    sc_skill_tree,
-};
-
-struct scene_s {
+struct s_scene {
     sprite_t *ll_sprite;
 };
 
-struct game_s {
+struct s_game {
     scene_t **sc;
     screen_id_t scene;
 };
@@ -43,8 +42,11 @@ struct game_s {
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);
 
-void change_scene_to_play(game_t **game);
-void change_scene_to_settings(game_t **game);
+void exec_mouse_button_scene(game_t *game, sfRenderWindow *window);
+void manage_menu_input(game_t *game, sfRenderWindow *window);
+
+void change_scene_to_play(game_t *game);
+void change_scene_to_settings(game_t *game);
 
 void select_scene(game_t *game, sfRenderWindow *window);
 
