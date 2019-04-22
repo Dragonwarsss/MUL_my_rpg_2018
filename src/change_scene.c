@@ -7,12 +7,12 @@
 
 #include "my.h"
 
-void change_scene_to_play(void)
+void change_scene_to_play(game_t **game)
 {
-    scene = 1;
+    (*game)->scene = 1;
 }
 
-void change_scene_to_settings(void)
+void change_scene_to_settings(game_t **game)
 {
-    scene = 2;
+    (*game)->scene = 2;
 }

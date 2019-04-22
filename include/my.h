@@ -5,44 +5,50 @@
 ** my.h
 */
 
-#include <SFML/Graphics.h>
-
 #ifndef my_h_
 #define my_h_
 
-typedef struct s_game game_t;
-typedef struct s_scene scene_t;
-typedef struct s_sprite sprite_t;
+#include "macros.h"
+#include <SFML/Graphics.h>
 
-struct s_sprite {
+typedef struct game_s game_t;
+typedef struct scene_s scene_t;
+typedef struct sprite_s sprite_t;
+typedef enum scene_id_e screen_id_t;
+
+struct sprite_s {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
     sfIntRect rect;
     int button;
-    void (*ptr)(void);
+    void (*ptr)(game_t **game);
     sprite_t *next;
 };
 
-struct s_scene {
+enum scene_id_e {
+    sc_menu,
+    sc_skill_tree,
+};
+
+struct scene_s {
     sprite_t *ll_sprite;
 };
 
-struct s_game {
+struct game_s {
     scene_t **sc;
-    int scene;
+    screen_id_t scene;
 };
 
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);
 
-void change_scene_to_play(void);
-void change_scene_to_settings(void);
+void change_scene_to_play(game_t **game);
+void change_scene_to_settings(game_t **game);
 
-void select_scene(game_t *g, sfRenderWindow *window);
+void select_scene(game_t *game, sfRenderWindow *window);
 
+void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
 void display_menu(scene_t *sc, sfRenderWindow *window);
-
-int scene;
 
 #endif

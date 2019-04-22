@@ -11,21 +11,21 @@
 
 game_t *init_game(void)
 {
-    game_t *g = malloc(sizeof(game_t));
+    game_t *game = malloc(sizeof(game_t));
 
-    scene = 0;
-    if (!g)
+    if (!game)
         return (NULL);
-    g->sc = malloc(sizeof(scene_t*) * 5);
-    if (!g->sc)
+    game->scene = 0;
+    game->sc = malloc(sizeof(scene_t*) * 5);
+    if (!game->sc)
         return (NULL);
     for (int i = 0; i != 4; i += 1) {
-        g->sc[i] = malloc(sizeof(scene_t));
-        if (!g->sc[i])
+        game->sc[i] = malloc(sizeof(scene_t));
+        if (!game->sc[i])
             return (NULL);
     }
-    g->sc[0]->ll_sprite = create_ll_menu();
-    if (!g->sc[0]->ll_sprite)
+    game->sc[0]->ll_sprite = create_ll_menu();
+    if (!game->sc[0]->ll_sprite)
         return (NULL);
-    return (g);
+    return (game);
 }
