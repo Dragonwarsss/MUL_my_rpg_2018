@@ -15,6 +15,7 @@ SRCS	=	src/main.c		\
 		src/change_scene.c	\
 		src/select_scene.c	\
 		src/display_menu.c	\
+		src/display_skill_tree.c
 
 OBJS	=	$(SRCS:.c=.o)
 

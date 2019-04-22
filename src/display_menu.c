@@ -9,31 +9,22 @@
 
 static void check_button_menu(scene_t *sc, sfRenderWindow *window)
 {
-    sprite_t *tmp = sc->ll_sprite;
     sfVector2i pm = sfMouse_getPositionRenderWindow(window);
-    sfIntRect rect;
 
-    while (tmp) {
+    for (sprite_t *tmp = sc->ll_sprite; tmp; tmp = tmp->next) {
         tmp->rect.left = 0;
         if (pm.x >= tmp->pos.x && pm.x <= tmp->pos.x + tmp->rect.width &&
-            pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height &&
-            tmp->button == 1) {
-            rect = sfSprite_getTextureRect(tmp->sprite);
-            tmp->rect.left = rect.width;
-        }
+        pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height &&
+        tmp->button == 1)
+            tmp->rect.left = sfSprite_getTextureRect(tmp->sprite).width;
         if (tmp->button)
             sfSprite_setTextureRect(tmp->sprite, tmp->rect);
-        tmp = tmp->next;
     }
 }
 
 void display_menu(scene_t *sc, sfRenderWindow *window)
 {
-    sprite_t *tmp = sc->ll_sprite;
-
     check_button_menu(sc, window);
-    while (tmp) {
+    for (sprite_t *tmp = sc->ll_sprite; tmp; tmp = tmp->next)
         sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
-        tmp = tmp->next;
-    }
 }

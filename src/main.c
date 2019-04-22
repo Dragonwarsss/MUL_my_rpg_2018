@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "my.h"
 
-void event_handler(sfEvent *event, sfRenderWindow *window, game_t *g)
+void event_handler(sfEvent *event, sfRenderWindow *window, game_t UNUSED *game)
 {
     if (event->type == sfEvtClosed)
         sfRenderWindow_close(window);
@@ -20,9 +20,9 @@ int gameloop(void)
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window;
     sfEvent event;
-    game_t *g = init_game();
+    game_t *game = init_game();
 
-    if (!g)
+    if (!game)
         return (84);
     window = sfRenderWindow_create(mode, "my_rpg", sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(window, 30);
@@ -30,13 +30,13 @@ int gameloop(void)
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
         while (sfRenderWindow_pollEvent(window, &event))
-            event_handler(&event, window, g);
-        select_scene(g, window);
+            event_handler(&event, window, game);
+        select_scene(game, window);
     }
     return (0);
 }
 
-int main(int argc, char **argv, char **envp)
+int main(int UNUSED argc, char UNUSED **argv, char **envp)
 {
     int stat = 0;
 
