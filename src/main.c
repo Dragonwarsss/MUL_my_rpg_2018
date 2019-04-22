@@ -13,6 +13,8 @@ void event_handler(sfEvent *event, sfRenderWindow *window, game_t UNUSED *game)
 {
     if (event->type == sfEvtClosed)
         sfRenderWindow_close(window);
+    if (event->type == sfEvtMouseButtonPressed)
+        exec_mouse_button_scene(game, window);
 }
 
 int gameloop(void)

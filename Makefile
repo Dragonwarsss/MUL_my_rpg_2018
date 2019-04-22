@@ -11,6 +11,8 @@ NAME	=	my_rpg
 
 SRCS	=	src/main.c		\
 		src/init.c		\
+		src/exec_mouse_button_scene.c		\
+		src/manage_menu_input.c			\
 		src/create_ll_menu.c	\
 		src/change_scene.c	\
 		src/select_scene.c	\
@@ -19,7 +21,7 @@ SRCS	=	src/main.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -lcsfml-graphics
+CFLAGS	=	-Wall -Wextra -pedantic -lcsfml-graphics
 
 all:	$(NAME)
 
