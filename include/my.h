@@ -5,11 +5,12 @@
 ** my.h
 */
 
+#include <SFML/Graphics.h>
+#include "macros.h"
+#include "map.h"
+
 #ifndef my_h_
 #define my_h_
-
-#include "macros.h"
-#include <SFML/Graphics.h>
 
 typedef struct s_game game_t;
 typedef struct s_scene scene_t;
@@ -17,6 +18,9 @@ typedef struct s_sprite sprite_t;
 
 typedef enum scene_id {
     sc_menu,
+    sc_map1,
+    sc_map2,
+    sc_map3,
     sc_skill_tree,
 } screen_id_t;
 
@@ -36,8 +40,11 @@ struct s_scene {
 
 struct s_game {
     scene_t **sc;
+    map_t **maps;
     screen_id_t scene;
 };
+
+void my_puterr(char *str);
 
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);

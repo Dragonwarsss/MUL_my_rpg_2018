@@ -9,15 +9,18 @@ CC	=	gcc -I include
 
 NAME	=	my_rpg
 
-SRCS	=	src/main.c		\
-		src/init.c		\
+SRCS	=	src/main.c				\
+		src/my_puterr.c				\
+		src/init.c				\
+		src/load_map.c				\
 		src/exec_mouse_button_scene.c		\
 		src/manage_menu_input.c			\
-		src/create_ll_menu.c	\
-		src/change_scene.c	\
-		src/select_scene.c	\
-		src/display_menu.c	\
-		src/display_skill_tree.c
+		src/create_ll_menu.c			\
+		src/change_scene.c			\
+		src/select_scene.c			\
+		src/display_menu.c			\
+		src/display_skill_tree.c		\
+		src/display_map.c			\
 
 OBJS	=	$(SRCS:.c=.o)
 
