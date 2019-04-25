@@ -74,7 +74,8 @@ int edit(__attribute__((unused))int ac, char **av, int max_x, int max_y)
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
         while (sfRenderWindow_pollEvent(window, &event))
-            event_handler(&event, window, edit);
+            if (sfRenderWindow_hasFocus(window))
+                event_handler(&event, window, edit);
         action(edit, window, max_x, max_y);
     }
     save(edit, window);
