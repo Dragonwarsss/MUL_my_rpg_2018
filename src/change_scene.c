@@ -16,3 +16,8 @@ void change_scene_to_settings(game_t *game)
 {
     game->scene = 2;
 }
+
+void quit_game(game_t *game)
+{
+    game->quit = 1;
+}

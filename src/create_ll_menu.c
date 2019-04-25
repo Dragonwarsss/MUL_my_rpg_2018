@@ -46,5 +46,6 @@ sprite_t *create_ll_menu(void)
     tmp = push_ll(tmp, "asset/quit.jpg", (sfVector2f) {1920 / 3 * 2, 0}, 1);
     if (!tmp)
         return (NULL);
+    tmp->ptr = &quit_game;
     return (tmp);
 }

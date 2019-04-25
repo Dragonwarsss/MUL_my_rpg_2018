@@ -34,6 +34,8 @@ int gameloop(void)
         while (sfRenderWindow_pollEvent(window, &event))
             event_handler(&event, window, game);
         select_scene(game, window);
+        if (game->quit)
+            break;
     }
     return (0);
 }

@@ -28,6 +28,7 @@ int init_maps(game_t *game)
 
     if (!game->maps)
         return (84);
+    game->quit = 0;
     for (int i = 0; i != 3; i += 1)
         game->maps[i] = malloc(sizeof(map_t));
     game->maps[3] = NULL;

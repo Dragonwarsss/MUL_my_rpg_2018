@@ -42,6 +42,7 @@ struct s_game {
     scene_t **sc;
     map_t **maps;
     screen_id_t scene;
+    int quit;
 };
 
 void my_puterr(char *str);
@@ -54,6 +55,7 @@ void manage_menu_input(game_t *game, sfRenderWindow *window);
 
 void change_scene_to_play(game_t *game);
 void change_scene_to_settings(game_t *game);
+void quit_game(game_t *game);
 
 void select_scene(game_t *game, sfRenderWindow *window);
 
