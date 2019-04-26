@@ -11,16 +11,20 @@ NAME	=	my_rpg
 
 SRCS	=	src/main.c				\
 		src/my_puterr.c				\
-		src/init.c				\
-		src/load_map.c				\
+		src/characters/create_ll_char.c		\
+		src/initialization/init.c		\
+		src/initialization/load_map.c		\
+		src/initialization/create_ll_menu.c	\
 		src/exec_mouse_button_scene.c		\
-		src/manage_menu_input.c			\
-		src/create_ll_menu.c			\
+		src/input/check_key_press_scene.c	\
+		src/input/manage_menu_input.c		\
 		src/change_scene.c			\
 		src/select_scene.c			\
-		src/display_menu.c			\
-		src/display_skill_tree.c		\
-		src/display_map.c			\
+		src/display/draw_scene.c		\
+		src/display/display_option.c		\
+		src/display/display_map.c		\
+		src/display/display_menu.c		\
+		src/display/display_skill_tree.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -37,6 +37,12 @@ int init_maps(game_t *game)
     return (0);
 }
 
+void init_scene(scene_t *sc, sprite_t *ll_sprite, player_t *player)
+{
+    sc->ll_sprite = ll_sprite;
+    sc->player = player;
+}
+
 game_t *init_game(void)
 {
     game_t *game = malloc(sizeof(game_t));
@@ -52,7 +58,9 @@ game_t *init_game(void)
         if (!game->sc[i])
             return (NULL);
     }
-    game->sc[0]->ll_sprite = create_ll_menu();
+    init_scene(game->sc[0], create_ll_menu(), NULL);
+    init_scene(game->sc[1], NULL, create_ll_char());
+//    game->sc[0]->ll_sprite = create_ll_menu();
     if (!game->sc[0]->ll_sprite)
         return (NULL);
     if (init_maps(game) == 84)

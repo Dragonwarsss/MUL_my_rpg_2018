@@ -13,6 +13,8 @@ void select_scene(game_t *game, sfRenderWindow *window)
         display_menu(game->sc[0], window);
     if (game->scene == sc_map1)
         display_map(game->maps[0], window);
+    if (game->scene == sc_option)
+        display_option(game->sc[1], window);
     if (game->scene == sc_skill_tree)
         display_skill_tree(game, window);
 }

@@ -14,7 +14,7 @@ void change_scene_to_play(game_t *game)
 
 void change_scene_to_settings(game_t *game)
 {
-    game->scene = 2;
+    game->scene = sc_option;
 }
 
 void quit_game(game_t *game)

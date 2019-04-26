@@ -15,6 +15,8 @@ void event_handler(sfEvent *event, sfRenderWindow *window, game_t UNUSED *game)
         sfRenderWindow_close(window);
     if (event->type == sfEvtMouseButtonPressed)
         exec_mouse_button_scene(game, window);
+    if (event->type == sfEvtKeyPressed)
+        check_key_press_scene(event, game);
 }
 
 int gameloop(void)

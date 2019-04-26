@@ -25,6 +25,5 @@ static void check_button_menu(scene_t *sc, sfRenderWindow *window)
 void display_menu(scene_t *sc, sfRenderWindow *window)
 {
     check_button_menu(sc, window);
-    for (sprite_t *tmp = sc->ll_sprite; tmp; tmp = tmp->next)
-        sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
+    draw_scene(sc, window);
 }
