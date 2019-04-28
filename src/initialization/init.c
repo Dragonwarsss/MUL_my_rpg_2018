@@ -60,7 +60,6 @@ game_t *init_game(void)
     }
     init_scene(game->sc[0], create_ll_menu(), NULL);
     init_scene(game->sc[1], NULL, create_ll_char());
-//    game->sc[0]->ll_sprite = create_ll_menu();
     if (!game->sc[0]->ll_sprite)
         return (NULL);
     if (init_maps(game) == 84)

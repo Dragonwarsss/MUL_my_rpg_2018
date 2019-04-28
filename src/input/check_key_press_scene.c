@@ -8,7 +8,7 @@
 #include <SFML/Graphics.h>
 #include "my.h"
 
-void change_skin(sfEvent *event, scene_t *sc)
+void change_skin(sfEvent *event, scene_t *sc, game_t *game)
 {
     if (event->key.code == sfKeyLeft)
         if (sc->player->prev) {
@@ -18,10 +18,12 @@ void change_skin(sfEvent *event, scene_t *sc)
         if (sc->player->next) {
             sc->player = sc->player->next;
         }
+    if (event->key.code == sfKeyEscape)
+        game->scene = sc_menu;
 }
 
 void check_key_press_scene(sfEvent *event, game_t *game)
 {
     if (game->scene == sc_option)
-        change_skin(event, game->sc[1]);
+        change_skin(event, game->sc[1], game);
 }

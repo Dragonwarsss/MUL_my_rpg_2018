@@ -28,6 +28,7 @@ typedef enum scene_id {
 
 struct s_player {
     int id;
+    int scale;
     sfSprite *sprite;
     sfTexture *texture;
     sfIntRect rect;
