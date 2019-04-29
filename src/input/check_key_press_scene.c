@@ -14,13 +14,15 @@ void change_skin(sfEvent *event, scene_t *sc, game_t *game)
         if (sc->player->prev) {
             sc->player = sc->player->prev;
             game->player->texture = sc->player->texture;
-            sfSprite_setTexture(game->player->sprite, game->player->texture, sfFalse);
+            sfSprite_setTexture(game->player->sprite,
+            game->player->texture, sfFalse);
         }
     if (event->key.code == sfKeyRight)
         if (sc->player->next) {
             sc->player = sc->player->next;
             game->player->texture = sc->player->texture;
-            sfSprite_setTexture(game->player->sprite, game->player->texture, sfFalse);
+            sfSprite_setTexture(game->player->sprite,
+            game->player->texture, sfFalse);
         }
 }
 
