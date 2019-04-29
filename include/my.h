@@ -55,7 +55,9 @@ struct s_scene {
 struct s_game {
     scene_t **sc;
     map_t **maps;
+    player_t *player;
     screen_id_t scene;
+    int map;
     int quit;
 };
 
@@ -63,6 +65,7 @@ void my_puterr(char *str);
 
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);
+player_t *init_player(player_t *ptr);
 
 void *create_ll_char(void);
 
@@ -79,7 +82,9 @@ void select_scene(game_t *game, sfRenderWindow *window);
 void draw_scene(scene_t *sc, sfRenderWindow *window);
 
 void display_option(scene_t *sc, sfRenderWindow *window);
+void display_game(game_t *game, sfRenderWindow *window);
 void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
 void display_menu(scene_t *sc, sfRenderWindow *window);
+void display_player(player_t *player, sfRenderWindow *window);
 
 #endif

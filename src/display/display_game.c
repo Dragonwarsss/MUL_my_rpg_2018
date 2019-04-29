@@ -10,5 +10,6 @@
 
 void display_game(game_t *game, sfRenderWindow *window)
 {
-    display_map();
+    display_map(game->maps[game->map], window);
+    display_player(game->player, window);
 }

@@ -15,6 +15,7 @@ SRCS	=	src/main.c				\
 		src/initialization/init.c		\
 		src/initialization/load_map.c		\
 		src/initialization/create_ll_menu.c	\
+		src/initialization/init_player.c	\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
@@ -25,6 +26,8 @@ SRCS	=	src/main.c				\
 		src/display/display_map.c		\
 		src/display/display_menu.c		\
 		src/display/display_skill_tree.c	\
+		src/display/display_game.c		\
+		src/display/display_player.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 
