@@ -19,10 +19,12 @@ void event_handler(sfEvent *event, sfRenderWindow *window, edit_t *edit)
         if (event->key.code == sfKeyRight && edit->pos_selected.x < 1700) {
             edit->pos_selected.x += edit->tile_size * edit->scale;
             edit->block += 100;
+            printf("selected: %d\n", edit->block);
         }
         if (event->key.code == sfKeyLeft && edit->pos_selected.x > 200) {
             edit->pos_selected.x -= edit->tile_size * edit->scale;
             edit->block -= 100;
+            printf("selected: %d\n", edit->block);
         }
         if (event->key.code == sfKeyUp && edit->rect_bar.top > 0) {
             edit->rect_bar.top -= (edit->tile_size);

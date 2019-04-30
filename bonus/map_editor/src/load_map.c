@@ -10,17 +10,22 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 #include "edit.h"
 #include <my.h>
 
 void read_maps(edit_t *edit, int fd)
 {
-    for (int i = 0; i != edit->width; i += 1)
-        for (int j = 0; j != edit->height; j += 1)
+    for (int i = 0; i != edit->width; i += 1) {
+        for (int j = 0; j != edit->height; j += 1) {
             read(fd, &edit->map[i][j], sizeof(int));
-    for (int i = 0; i != edit->width; i += 1)
-        for (int j = 0; j != edit->height; j += 1)
+        }
+    }
+    for (int i = 0; i != edit->width; i += 1) {
+        for (int j = 0; j != edit->height; j += 1) {
             read(fd, &edit->map2[i][j], sizeof(int));
+        }
+    }
 }
 
 void free_maps(edit_t *edit)

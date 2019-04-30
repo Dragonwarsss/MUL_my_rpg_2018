@@ -1,0 +1,159 @@
+change_text.c:    sfText_setString(edit->text, str);
+load_conf.c:    edit->name_sheet = str;
+load_conf.c:    sfTexture_destroy(edit->texture);
+load_conf.c:    edit->texture = sfTexture_createFromFile(edit->name_sheet, NULL);
+load_conf.c:    sfSprite_setTexture(edit->sprite, edit->texture, sfTrue);
+load_conf.c:    edit->rect.width = edit->tile_size;
+load_conf.c:    edit->rect.height = edit->tile_size;
+load_conf.c:    if (!edit->texture) {
+load_conf.c:    edit->tile_size = my_atoi(str);
+load_conf.c:    edit->scale = my_atoi(str);
+load_conf.c:    sfSprite_setScale(edit->sprite, (sfVector2f) {edit->scale, edit->scale});
+load_conf.c:    edit->rect.height = my_atoi(str);
+load_conf.c:    edit->rect.width = my_atoi(str);
+save.c:    for (int i = 0; i != edit->width; i += 1)
+save.c:        for (int j = 0; j != edit->height; j += 1)
+save.c:            write(fd, &edit->map[i][j], sizeof(int));
+save.c:    for (int i = 0; i != edit->width; i += 1)
+save.c:        for (int j = 0; j != edit->height; j += 1)
+save.c:            write(fd, &edit->map2[i][j], sizeof(int));
+save.c:    int fd = open(edit->map_to_save, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+save.c:            write(fd, &edit->height, sizeof(int));
+save.c:            write(fd, &edit->width, sizeof(int));
+select_map.c:    if (edit->ground == 0)
+select_map.c:        put_block(edit, window, edit->map, max_x, max_y);
+select_map.c:    else if (edit->ground == 1)
+select_map.c:        put_block(edit, window, edit->map2, max_x, max_y);
+key_map.c:        if (event->key.code == sfKeyP && edit->ground == 0) {
+key_map.c:            edit->ground += 1;
+key_map.c:        if (event->key.code == sfKeyM && edit->ground == 1) {
+key_map.c:            edit->ground -= 1;
+select_block.c:    sfSprite_setPosition(edit->sprite, edit->pos_bar);
+select_block.c:    sfSprite_setPosition(edit->selected, edit->pos_selected);
+select_block.c:    sfSprite_setTextureRect(edit->sprite, edit->rect_bar);
+select_block.c:    sfRenderWindow_drawSprite(window, edit->font, NULL);
+select_block.c:    sfRenderWindow_drawSprite(window, edit->sprite, NULL);
+select_block.c:    sfRenderWindow_drawSprite(window, edit->selected, NULL);
+load_map.c:    for (int i = 0; i != edit->width; i += 1) {
+load_map.c:        for (int j = 0; j != edit->height; j += 1) {
+load_map.c:            read(fd, &edit->map[i][j], sizeof(int));
+load_map.c:            printf("%d, ", edit->map[i][j]);
+load_map.c:    for (int i = 0; i != edit->width; i += 1) {
+load_map.c:        for (int j = 0; j != edit->height; j += 1) {
+load_map.c:            read(fd, &edit->map2[i][j], sizeof(int));
+load_map.c:            printf("%d, ", edit->map[i][j]);
+load_map.c:    for (int i = 0; i != edit->width; i += 1) {
+load_map.c:        free(edit->map[i]);
+load_map.c:        free(edit->map2[i]);
+load_map.c:    free(edit->map);
+load_map.c:    free(edit->map2);
+load_map.c:    edit->map = malloc(sizeof(int*) * edit->width);
+load_map.c:    edit->map2 = malloc(sizeof(int*) * edit->width);
+load_map.c:    for (int i = 0; i != edit->width; i += 1) {
+load_map.c:        edit->map[i] = malloc(sizeof(int) * edit->height);
+load_map.c:        edit->map2[i] = malloc(sizeof(int) * edit->height);
+load_map.c:    for (int i = 0; i != edit->width; i += 1)
+load_map.c:        for (int j = 0; j != edit->height; j += 1) {
+load_map.c:            edit->map[i][j] = 0;
+load_map.c:            edit->map2[i][j] = 0;
+load_map.c:    int fd = open(edit->map_to_load, O_RDONLY);
+load_map.c:    read(fd, &edit->width, sizeof(int));
+load_map.c:    read(fd, &edit->height, sizeof(int));
+free_everything.c:    for (int i = 0; i != edit->width; i += 1) {
+free_everything.c:        free(edit->map[i]);
+free_everything.c:        free(edit->map2[i]);
+free_everything.c:    free(edit->map);
+free_everything.c:    free(edit->map2);
+free_everything.c:    sfSprite_destroy(edit->sprite);
+free_everything.c:    sfSprite_destroy(edit->selected);
+free_everything.c:    sfSprite_destroy(edit->font);
+free_everything.c:    sfSprite_destroy(edit->bg);
+free_everything.c:    sfTexture_destroy(edit->texture);
+free_everything.c:    sfTexture_destroy(edit->selected_t);
+free_everything.c:    sfTexture_destroy(edit->font_t);
+free_everything.c:    sfTexture_destroy(edit->bg_t);
+free_everything.c:    sfFont_destroy(edit->font_text);
+free_everything.c:    sfText_destroy(edit->text);
+get_opt.c:        edit->map_to_load = elem;
+get_opt.c:        edit->map_to_save = elem;
+get_opt.c:        edit->tile_size = my_atoi(elem);
+get_opt.c:        edit->tile_size = my_atoi(elem);
+get_opt.c:        edit->map_to_save = elem;
+action.c:    sfRenderWindow_drawSprite(window, edit->bg, NULL);
+action.c:    sfRenderWindow_drawText(window, edit->text, NULL);
+action.c:    display_map(edit, window, edit->map);
+action.c:    display_map(edit, window, edit->map2);
+display_map.c:    int height = edit->height;
+display_map.c:    int width = edit->width;
+display_map.c:    int tile_size = edit->tile_size;
+display_map.c:            edit->rect.left = map[i][j] / 100 * tile_size;
+display_map.c:            edit->rect.top = map[i][j] % 100 * tile_size;
+display_map.c:            edit->pos.x = (j * tile_size) * edit->scale + edit->offset.x;
+display_map.c:            edit->pos.y = (i * tile_size) * edit->scale + edit->offset.y;
+display_map.c:            sfSprite_setPosition(edit->sprite, edit->pos);
+display_map.c:            sfSprite_setTextureRect(edit->sprite, edit->rect);
+display_map.c:            sfRenderWindow_drawSprite(window, edit->sprite, NULL);
+get_pos_map.c:    int tile_size = edit->tile_size;
+get_pos_map.c:    for (; pos.x > (tile_size * edit->scale); pos.x -= (tile_size * edit->scale))
+get_pos_map.c:    for (; pos.y > (tile_size * edit->scale); pos.y -= (tile_size * edit->scale))
+set_edit.c:    edit->font = sfSprite_create();
+set_edit.c:    edit->font_t = sfTexture_createFromFile("assets/font.png", NULL);
+set_edit.c:    sfSprite_setTexture(edit->font, edit->font_t ,sfTrue);
+set_edit.c:    edit->pos_font = (sfVector2f) {470, 1010};
+set_edit.c:    sfSprite_setPosition(edit->font, edit->pos_font);
+set_edit.c:    edit->block = 0;
+set_edit.c:    edit->map2 = malloc(sizeof(int*) * edit->width);
+set_edit.c:    for (int i = 0; i != edit->width; i += 1)
+set_edit.c:        edit->map2[i] = malloc(sizeof(int) * edit->height);
+set_edit.c:    fill_map(edit->map2, edit->height, edit->width);
+set_edit.c:    edit->ground = 0;
+set_edit.c:    edit->bg = sfSprite_create();
+set_edit.c:    edit->bg_t = sfTexture_createFromFile("assets/bg.png", NULL);
+set_edit.c:    sfSprite_setTexture(edit->bg, edit->bg_t, sfTrue);
+set_edit.c:    edit->text = sfText_create();
+set_edit.c:    edit->font_text = sfFont_createFromFile("font/font.ttf");
+set_edit.c:    sfText_setFont(edit->text, edit->font_text);
+set_edit.c:    sfText_setString(edit->text, "map1");
+set_edit.c:    edit->map_to_save = "map";
+set_edit.c:    edit->map_to_load = NULL;
+set_edit.c:    edit->tile_size = 70;
+set_edit.c:    edit->height = my_atoi(av[1]);
+set_edit.c:    edit->width = my_atoi(av[2]);
+set_edit.c:    edit->name_sheet = "assets/spritesheet.png";
+set_edit.c:    edit->texture = sfTexture_createFromFile(edit->name_sheet, NULL);
+set_edit.c:    edit->sprite = sfSprite_create();
+set_edit.c:    sfSprite_setTexture(edit->sprite, edit->texture, sfTrue);
+set_edit.c:    sfSprite_setScale(edit->sprite, (sfVector2f) {1, 1});
+set_edit.c:    edit->map = malloc(sizeof(int*) * edit->width);
+set_edit.c:    for (int i = 0; i != edit->width; i += 1)
+set_edit.c:        edit->map[i] = malloc(sizeof(int) * edit->height);
+set_edit.c:    fill_map(edit->map, edit->height, edit->width);
+set_edit.c:    edit->pos = (sfVector2f) {0, 0};
+set_edit.c:    edit->rect = (sfIntRect) {0, 0, edit->tile_size, edit->tile_size};
+set_edit.c:    edit->pos_bar = (sfVector2f) {200, 1010};
+set_edit.c:    edit->rect_bar = (sfIntRect) {0, 0, 1050, 70};
+set_edit.c:    edit->selected = sfSprite_create();
+set_edit.c:    edit->selected_t = sfTexture_createFromFile("assets/selected.png", NULL);
+set_edit.c:    sfSprite_setTexture(edit->selected, edit->selected_t, sfTrue);
+set_edit.c:    edit->pos_selected = (sfVector2f) {200, 1010};
+init.c:    if (edit->map_to_load != NULL)
+main.c:        if (event->key.code == sfKeyRight && edit->pos_selected.x < 1700) {
+main.c:            edit->pos_selected.x += edit->tile_size * edit->scale;
+main.c:            edit->block += 100;
+main.c:            printf("selected: %d\n", edit->block);
+main.c:        if (event->key.code == sfKeyLeft && edit->pos_selected.x > 200) {
+main.c:            edit->pos_selected.x -= edit->tile_size * edit->scale;
+main.c:            edit->block -= 100;
+main.c:            printf("selected: %d\n", edit->block);
+main.c:        if (event->key.code == sfKeyUp && edit->rect_bar.top > 0) {
+main.c:            edit->rect_bar.top -= (edit->tile_size);
+main.c:            edit->block -= 1;
+main.c:        if (event->key.code == sfKeyDown && edit->rect_bar.top < 420) {
+main.c:            edit->rect_bar.top += (edit->tile_size);
+main.c:            edit->block += 1;
+main.c:            move_map_right(&edit->offset, edit->tile_size);
+main.c:            edit->x_offset += 1;
+main.c:            move_map_left(&edit->offset, edit->tile_size);
+main.c:            edit->x_offset -= 1;
+put_block.c:            map[pos.y][pos.x - edit->x_offset] = edit->block;
+put_block.c:            printf("put: %d\n", edit->block);
