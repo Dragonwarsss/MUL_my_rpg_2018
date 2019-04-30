@@ -48,7 +48,7 @@ void init_base(game_t *game)
     game->scene = 0;
     game->map = 0;
     init_scene(game->sc[0], create_ll_menu(), NULL);
-    init_scene(game->sc[1], NULL, create_ll_char());
+    init_scene(game->sc[1], create_ll_options(), create_ll_char());
     game->player = init_player(game->sc[1]->player);
 }
 

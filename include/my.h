@@ -19,11 +19,11 @@ typedef struct s_player player_t;
 
 typedef enum scene_id {
     sc_menu = 0,
-    sc_map1 = 1,
-    sc_map2 = 2,
-    sc_map3 = 3,
-    sc_option = 4,
-    sc_skill_tree = 5,
+    sc_option = 1,
+    sc_skill_tree = 2,
+    sc_map1 = 3,
+    sc_map2 = 4,
+    sc_map3 = 5,
 } screen_id_t;
 
 struct s_player {
@@ -65,6 +65,7 @@ void my_puterr(char *str);
 
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);
+sprite_t *create_ll_options(void);
 player_t *init_player(player_t *ptr);
 
 void *create_ll_char(void);

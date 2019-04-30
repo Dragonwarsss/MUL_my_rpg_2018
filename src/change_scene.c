@@ -9,7 +9,7 @@
 
 void change_scene_to_play(game_t *game)
 {
-    game->scene = 1;
+    game->scene = sc_map1;
 }
 
 void change_scene_to_settings(game_t *game)

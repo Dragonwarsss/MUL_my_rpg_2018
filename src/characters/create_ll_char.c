@@ -16,7 +16,7 @@ static void *push_ll(player_t *next, char *path, int id)
     if (!tmp)
         return (NULL);
     tmp->id = id;
-    tmp->scale = 4;
+    tmp->scale = 3;
     tmp->sprite = sfSprite_create();
     tmp->texture = sfTexture_createFromFile(path, NULL);
     sfSprite_setTexture(tmp->sprite, tmp->texture, sfTrue);
@@ -24,7 +24,7 @@ static void *push_ll(player_t *next, char *path, int id)
     tmp->rect = sfSprite_getTextureRect(tmp->sprite);
     tmp->rect.width /= 3;
     tmp->rect.height /= 4;
-    tmp->pos = (sfVector2f) {832, 412};
+    tmp->pos = (sfVector2f) {1350, 550};
     sfSprite_setPosition(tmp->sprite, tmp->pos);
     tmp->next = next;
     tmp->prev = NULL;
