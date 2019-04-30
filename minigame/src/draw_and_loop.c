@@ -19,7 +19,7 @@ void loop_game(t_minigame *game)
 void draw_game(t_minigame *game)
 {
     sfRenderWindow_drawSprite(game->engine.window,
-                              game->engine.background.sprite, NULL);
+    game->engine.background.sprite, NULL);
     sfSprite_setTextureRect(game->bug.sprite, game->bug.rect);
     sfSprite_setPosition(game->bug.sprite, game->bug.pos);
     sfRenderWindow_drawSprite(game->engine.window, game->bug.sprite, NULL);

@@ -13,7 +13,7 @@ void bug_tick(t_minigame *game)
     if (game->bug.seconds >= 0.12) {
         sfClock_restart(game->bug.clock);
     }
-     game->bug.time = sfClock_getElapsedTime(game->bug.clock);
+    game->bug.time = sfClock_getElapsedTime(game->bug.clock);
     game->bug.seconds = game->bug.time.microseconds / 1000000.0;
     game->bug.pos.x = game->bug.pos.x + 0.09f;
 
