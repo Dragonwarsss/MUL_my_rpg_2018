@@ -11,4 +11,6 @@ void exec_mouse_button_scene(game_t *game, sfRenderWindow *window)
 {
     if (game->scene == sc_menu)
         manage_menu_input(game, window);
+    if (game->scene == sc_option)
+        manage_menu_input(game, window);
 }

@@ -16,7 +16,7 @@ void manage_menu_input(game_t *game, sfRenderWindow *window)
         if (pm.x >= tmp->pos.x && pm.x <= tmp->pos.x + tmp->rect.width &&
         pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height &&
         tmp->button) {
-            tmp->ptr(game);
+            tmp->ptr(game, tmp);
             break;
         }
         tmp = tmp->next;
