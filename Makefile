@@ -29,6 +29,7 @@ SRCS	=	src/main.c				\
 		src/display/display_game.c		\
 		src/display/display_player.c		\
 		src/initialization/create_ll_options.c	\
+		src/opt_music.c
 
 OBJS	=	$(SRCS:.c=.o)
 
