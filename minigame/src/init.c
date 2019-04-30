@@ -16,7 +16,7 @@ int init_engine(t_minigame *game)
         sfRenderWindow_create(game->engine.video_mode, "Fight the bugs !",
         sfDefaultStyle, NULL);
     game->engine.background.texture =
-        sfTexture_createFromFile("res/wallpaper.jpg", NULL);
+        sfTexture_createFromFile("res/term.jpg", NULL);
     game->engine.background.sprite = sfSprite_create();
     if (game->engine.window == 0 ||
         game->engine.background.texture == 0 ||
@@ -50,7 +50,7 @@ int init_score(t_minigame *game)
 
 int init_bugs(t_minigame *game)
 {
-    game->bug.texture = sfTexture_createFromFile("res/bug.png", NULL);
+    game->bug.texture = sfTexture_createFromFile("res/bug.jpg", NULL);
     if (game->bug.texture == 0) {
         return (-1);
     }
@@ -61,8 +61,8 @@ int init_bugs(t_minigame *game)
     sfSprite_setTexture(game->bug.sprite, game->bug.texture, sfTrue);
     game->bug.rect.left = 0;
     game->bug.rect.top = 0;
-    game->bug.rect.height = 110;
-    game->bug.rect.width = 85;
+    game->bug.rect.height = 80;
+    game->bug.rect.width = 80;
     game->bug.pos.x = -120;
     game->bug.pos.y = 0;
     game->bug.clock = sfClock_create();
