@@ -18,7 +18,6 @@ void put_block(edit_t *edit, sfRenderWindow *window, int **map, int max_x, int m
         if (pos.x >= max_x || pos.y >= max_y);
         else {
             map[pos.y][pos.x - edit->x_offset] = edit->block;
-            printf("put: %d\n", edit->block);
         }
     }
 }

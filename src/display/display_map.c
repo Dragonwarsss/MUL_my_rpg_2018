@@ -18,8 +18,10 @@ void display_map2(map_t *edit, sfRenderWindow *window)
         for (int j = 0; j != height; j += 1) {
             edit->rect.left = edit->map2[i][j] / 100 * tile_size;
             edit->rect.top = edit->map2[i][j] % 100 * tile_size;
-            edit->pos.x = (j * tile_size) * edit->scale + edit->offset.x;
-            edit->pos.y = (i * tile_size) * edit->scale + edit->offset.y;
+            edit->pos.x = (j * tile_size) * edit->scale +
+            (edit->offset.x * edit->scale);
+            edit->pos.y = (i * tile_size) * edit->scale +
+            (edit->offset.y * edit->scale);
             sfSprite_setPosition(edit->sprite, edit->pos);
             sfSprite_setTextureRect(edit->sprite, edit->rect);
             sfRenderWindow_drawSprite(window, edit->sprite, NULL);
@@ -36,8 +38,10 @@ void display_map(map_t *edit, sfRenderWindow *window)
         for (int j = 0; j != height; j += 1) {
             edit->rect.left = edit->map[i][j] / 100 * tile_size;
             edit->rect.top = edit->map[i][j] % 100 * tile_size;
-            edit->pos.x = (j * tile_size) * edit->scale + edit->offset.x;
-            edit->pos.y = (i * tile_size) * edit->scale + edit->offset.y;
+            edit->pos.x = (j * tile_size) * edit->scale +
+            (edit->offset.x * edit->scale);
+            edit->pos.y = (i * tile_size) * edit->scale +
+            (edit->offset.y * edit->scale);
             sfSprite_setPosition(edit->sprite, edit->pos);
             sfSprite_setTextureRect(edit->sprite, edit->rect);
             sfRenderWindow_drawSprite(window, edit->sprite, NULL);

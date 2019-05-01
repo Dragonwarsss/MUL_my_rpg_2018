@@ -90,4 +90,9 @@ void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
 void display_menu(scene_t *sc, sfRenderWindow *window);
 void display_player(player_t *player, sfRenderWindow *window);
 
+void move_map_down(sfVector2f *offset, int tile_size, player_t *player);
+void move_map_up(sfVector2f *offset, int tile_size, player_t *player);
+void move_map_left(sfVector2f *offset, int tile_size, player_t *player);
+void move_map_right(sfVector2f *offset, int tile_size, player_t *player);
+
 #endif
