@@ -30,6 +30,8 @@ SRCS	=	src/main.c				\
 		src/display/display_player.c		\
 		src/initialization/create_ll_options.c	\
 		src/opt_music.c				\
+		src/input/check_key_move.c		\
+		src/collides/collide.c			\
 		src/input/move_map.c			\
 
 OBJS	=	$(SRCS:.c=.o)

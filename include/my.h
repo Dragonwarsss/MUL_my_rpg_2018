@@ -33,6 +33,7 @@ struct s_player {
     sfTexture *texture;
     sfIntRect rect;
     sfVector2f pos;
+    sfVector2f pos_map;
     player_t *next;
     player_t *prev;
 };
@@ -89,6 +90,13 @@ void display_game(game_t *game, sfRenderWindow *window);
 void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
 void display_menu(scene_t *sc, sfRenderWindow *window);
 void display_player(player_t *player, sfRenderWindow *window);
+
+void check_key_up(map_t *map, player_t *player);
+void check_key_down(map_t *map, player_t *player);
+void check_key_left(map_t *map, player_t *player);
+void check_key_right(map_t *map, player_t *player);
+
+int collide(int block);
 
 void move_map_down(sfVector2f *offset, int tile_size, player_t *player);
 void move_map_up(sfVector2f *offset, int tile_size, player_t *player);
