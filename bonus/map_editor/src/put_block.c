@@ -17,7 +17,7 @@ void put_block(edit_t *edit, sfRenderWindow *window, int **map, int max_x, int m
         pos = get_pos_map(edit, window);
         if (pos.x >= max_x || pos.y >= max_y);
         else {
-            map[pos.y][pos.x - edit->x_offset] = edit->block;
+            map[pos.y - edit->y_offset][pos.x - edit->x_offset] = edit->block;
         }
     }
 }

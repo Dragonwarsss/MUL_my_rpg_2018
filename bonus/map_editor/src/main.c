@@ -19,12 +19,10 @@ void event_handler(sfEvent *event, sfRenderWindow *window, edit_t *edit)
         if (event->key.code == sfKeyRight && edit->pos_selected.x < 1700) {
             edit->pos_selected.x += edit->tile_size * edit->scale;
             edit->block += 100;
-            printf("selected: %d\n", edit->block);
         }
         if (event->key.code == sfKeyLeft && edit->pos_selected.x > 200) {
             edit->pos_selected.x -= edit->tile_size * edit->scale;
             edit->block -= 100;
-            printf("selected: %d\n", edit->block);
         }
         if (event->key.code == sfKeyUp && edit->rect_bar.top > 0) {
             edit->rect_bar.top -= (edit->tile_size);
@@ -34,13 +32,21 @@ void event_handler(sfEvent *event, sfRenderWindow *window, edit_t *edit)
             edit->rect_bar.top += (edit->tile_size);
             edit->block += 1;
         }
-        if (event->key.code == sfKeyN) {
+        if (event->key.code == sfKeyD) {
             move_map_right(&edit->offset, edit->tile_size);
             edit->x_offset += 1;
         }
-        if (event->key.code == sfKeyB) {
+        if (event->key.code == sfKeyQ) {
             move_map_left(&edit->offset, edit->tile_size);
             edit->x_offset -= 1;
+        }
+        if (event->key.code == sfKeyZ) {
+            move_map_up(&edit->offset, edit->tile_size);
+            edit->y_offset -= 1;
+        }
+        if (event->key.code == sfKeyS) {
+            move_map_down(&edit->offset, edit->tile_size);
+            edit->y_offset += 1;
         }
     }
     key_map(event, edit);

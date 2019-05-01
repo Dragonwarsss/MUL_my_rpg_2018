@@ -41,6 +41,7 @@ struct s_edit {
     int tile_size;
     int scale;
     int x_offset;
+    int y_offset;
     sfVector2f offset;
 };
 

@@ -19,12 +19,16 @@ void read_maps(edit_t *edit, int fd)
     for (int i = 0; i != edit->width; i += 1) {
         for (int j = 0; j != edit->height; j += 1) {
             read(fd, &edit->map[i][j], sizeof(int));
+            printf("%d ", edit->map[i][j]);
         }
+        printf("\n");
     }
     for (int i = 0; i != edit->width; i += 1) {
         for (int j = 0; j != edit->height; j += 1) {
             read(fd, &edit->map2[i][j], sizeof(int));
+            printf("%d ", edit->map2[i][j]);
         }
+        printf("\n");
     }
 }
 
