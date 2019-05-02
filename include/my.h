@@ -73,6 +73,7 @@ void my_puterr(char *str);
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);
 sprite_t *create_ll_options(void);
+sprite_t *create_ll_pause(void);
 player_t *init_player(player_t *ptr);
 sound_t **init_music(void);
 

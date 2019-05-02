@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include <stdlib.h>
 
 static sprite_t *push_ll(sprite_t *next, char *path, sfVector2f pos, int button)
 {
@@ -30,6 +31,13 @@ static sprite_t *push_ll(sprite_t *next, char *path, sfVector2f pos, int button)
     return (tmp);
 }
 
+void stop_pause(game_t *game, sprite_t *spr)
+{
+    (void) spr;
+
+    game->pause = 0;
+}
+
 sprite_t *create_ll_pause(void)
 {
     sprite_t *tmp = NULL;
@@ -37,12 +45,12 @@ sprite_t *create_ll_pause(void)
     tmp = push_ll(NULL, "asset/pause_res.png", (sfVector2f) {0, 0}, 1);
     if (!tmp)
         return (NULL);
-    tmp->ptr = NULL;
-    tmp = push_ll(tmp, "asset/pause_menu.png", (sfVector2f) {640, 0}, 0);
+    tmp->ptr = &stop_pause;
+    tmp = push_ll(tmp, "asset/pause_menu.png", (sfVector2f) {640, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &change_scene_to_menu;
-    tmp = push_ll(tmp, "asset/pause_quit.png", (sfVector2f) {1280, 0}, 0);
+    tmp = push_ll(tmp, "asset/pause_quit.png", (sfVector2f) {1280, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &quit_game;

@@ -26,7 +26,7 @@ void manage_menu_input(game_t *game, sfRenderWindow *window)
 
 void manage_pause_input(game_t *game, sfRenderWindow *window)
 {
-    sprite_t *tmp = game->sc[game->scene]->ll_sprite;
+    sprite_t *tmp = game->sc[sc_pause]->ll_sprite;
     sfVector2i pm = sfMouse_getPositionRenderWindow(window);
 
     while (tmp) {
