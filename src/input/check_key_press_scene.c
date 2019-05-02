@@ -42,8 +42,10 @@ void check_key_press_scene(sfEvent *event, game_t *game)
 {
     if (game->scene == sc_option)
         change_skin(event, game->sc[1], game);
-    if (event->key.code == sfKeyEscape)
+    if (event->key.code == sfKeyEscape) {
         game->scene = sc_menu;
+        sfMusic_play(game->sounds[0]->music);
+    }
     if (game->scene == sc_map1) {
         move_map(event, game);
     }

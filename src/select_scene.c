@@ -10,7 +10,7 @@
 void select_scene(game_t *game, sfRenderWindow *window)
 {
     if (game->scene == sc_menu)
-        display_menu(game->sc[0], window);
+        display_menu(game->sc[0], window, game->sounds[0]);
     if (game->scene == sc_map1)
         display_game(game, window);
     if (game->scene == sc_option)

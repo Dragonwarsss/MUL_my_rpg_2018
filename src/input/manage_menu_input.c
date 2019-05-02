@@ -17,6 +17,7 @@ void manage_menu_input(game_t *game, sfRenderWindow *window)
         pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height &&
         tmp->button) {
             tmp->ptr(game, tmp);
+//            sfMusic_stop(game->sounds[0]->music);
             break;
         }
         tmp = tmp->next;

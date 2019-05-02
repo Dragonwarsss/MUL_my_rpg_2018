@@ -22,7 +22,7 @@ static void check_button_menu(scene_t *sc, sfRenderWindow *window)
     }
 }
 
-void display_menu(scene_t *sc, sfRenderWindow *window)
+void display_menu(scene_t *sc, sfRenderWindow *window, sound_t *sound)
 {
     check_button_menu(sc, window);
     draw_scene(sc, window);
