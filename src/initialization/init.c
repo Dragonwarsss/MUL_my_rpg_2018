@@ -79,5 +79,6 @@ game_t *init_game(void)
         return (NULL);
     if (init_maps(game) == 84)
         return (NULL);
+    game->pause = 0;
     return (game);
 }
