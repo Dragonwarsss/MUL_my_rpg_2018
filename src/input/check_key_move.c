@@ -31,7 +31,6 @@ void check_key_down(map_t *map, player_t *player)
     int x = player->pos_map.x;
     int y = player->pos_map.y + 1;
 
-    printf("%d %d\n", y, map->height);
     if (y + 1 > map->height)
         return;
     if (!collide(map1[y][x]) && !collide(map2[y][x])) {
@@ -64,7 +63,6 @@ void check_key_right(map_t *map, player_t *player)
     int x = player->pos_map.x + 1;
     int y = player->pos_map.y;
 
-    printf("%d %d\n", x, map->width);
     if (x > map->width)
         return;
     if (!collide(map1[y][x]) && !collide(map2[y][x])) {

@@ -35,7 +35,7 @@ sprite_t *create_ll_options(void)
 {
     sprite_t *tmp = NULL;
 
-    tmp = push_ll(NULL, "asset/opt_music_icon.png", 
+    tmp = push_ll(NULL, "asset/opt_music_icon.png",
     (sfVector2f) {390, 580}, 1);
     if (!tmp)
         return (NULL);
