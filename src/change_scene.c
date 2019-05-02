@@ -27,3 +27,11 @@ void quit_game(game_t *game, sprite_t *spr)
 
     game->quit = 1;
 }
+
+void change_scene_to_menu(game_t *game, sprite_t *spr)
+{
+    (void) spr;
+
+    game->pause = 0;
+    game->scene = sc_menu;
+}

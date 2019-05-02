@@ -52,6 +52,7 @@ game_t *init_base(game_t *game)
     game->music = 1;
     init_scene(game->sc[0], create_ll_menu(), NULL);
     init_scene(game->sc[1], create_ll_options(), create_ll_char());
+    init_scene(game->sc[sc_pause], create_ll_pause(), NULL);
     game->player = init_player(game->sc[1]->player);
     game->sounds = init_music();
     if (!game->sounds)
@@ -65,10 +66,10 @@ game_t *init_game(void)
 
     if (!game)
         return (NULL);
-    game->sc = malloc(sizeof(scene_t*) * 5);
+    game->sc = malloc(sizeof(scene_t*) * 7);
     if (!game->sc)
         return (NULL);
-    for (int i = 0; i != 4; i += 1) {
+    for (int i = 0; i != 7; i += 1) {
         game->sc[i] = malloc(sizeof(scene_t));
         if (!game->sc[i])
             return (NULL);
@@ -79,5 +80,6 @@ game_t *init_game(void)
         return (NULL);
     if (init_maps(game) == 84)
         return (NULL);
+    game->pause = 0;
     return (game);
 }

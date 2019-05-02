@@ -26,6 +26,7 @@ typedef enum scene_id {
     sc_map1 = 3,
     sc_map2 = 4,
     sc_map3 = 5,
+    sc_pause = 6,
 } screen_id_t;
 
 struct s_player {
@@ -64,6 +65,7 @@ struct s_game {
     int map;
     int quit;
     int music;
+    int pause;
 };
 
 void my_puterr(char *str);
@@ -71,6 +73,7 @@ void my_puterr(char *str);
 game_t *init_game(void);
 sprite_t *create_ll_menu(void);
 sprite_t *create_ll_options(void);
+sprite_t *create_ll_pause(void);
 player_t *init_player(player_t *ptr);
 sound_t **init_music(void);
 
@@ -79,11 +82,14 @@ void *create_ll_char(void);
 void exec_mouse_button_scene(game_t *game, sfRenderWindow *window);
 void check_key_press_scene(sfEvent *event, game_t *game);
 void manage_menu_input(game_t *game, sfRenderWindow *window);
+void manage_pause_input(game_t *game, sfRenderWindow *window);
 
 void put_music_or_not(game_t *game, sprite_t *spr);
 void change_scene_to_play(game_t *game, sprite_t *spr);
 void change_scene_to_settings(game_t *game, sprite_t *spr);
+void change_scene_to_menu(game_t *game, sprite_t *spr);
 void quit_game(game_t *game, sprite_t *spr);
+void put_pause(game_t *game, sfRenderWindow *window);
 
 void select_scene(game_t *game, sfRenderWindow *window);
 

@@ -34,6 +34,8 @@ SRCS	=	src/main.c				\
 		src/input/check_key_move.c		\
 		src/collides/collide.c			\
 		src/input/move_map.c			\
+		src/display/display_pause.c	\
+		src/initialization/create_ll_pause.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 
