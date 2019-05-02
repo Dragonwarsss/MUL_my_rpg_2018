@@ -16,6 +16,7 @@ SRCS	=	src/main.c				\
 		src/initialization/load_map.c		\
 		src/initialization/create_ll_menu.c	\
 		src/initialization/init_player.c	\
+		src/initialization/init_music.c		\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
@@ -36,7 +37,7 @@ SRCS	=	src/main.c				\
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -pedantic -lcsfml-graphics
+CFLAGS	=	-Wall -Wextra -pedantic -lcsfml-graphics -lcsfml-audio
 
 all:	$(NAME)
 

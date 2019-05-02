@@ -6,8 +6,10 @@
 */
 
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 #include "macros.h"
 #include "map.h"
+#include "sound.h"
 
 #ifndef my_h_
 #define my_h_
@@ -58,6 +60,7 @@ struct s_game {
     map_t **maps;
     player_t *player;
     screen_id_t scene;
+    sound_t **sounds;
     int map;
     int quit;
     int music;
@@ -69,6 +72,7 @@ game_t *init_game(void);
 sprite_t *create_ll_menu(void);
 sprite_t *create_ll_options(void);
 player_t *init_player(player_t *ptr);
+sound_t **init_music(void);
 
 void *create_ll_char(void);
 
@@ -88,7 +92,7 @@ void draw_scene(scene_t *sc, sfRenderWindow *window);
 void display_option(scene_t *sc, sfRenderWindow *window);
 void display_game(game_t *game, sfRenderWindow *window);
 void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
-void display_menu(scene_t *sc, sfRenderWindow *window);
+void display_menu(scene_t *sc, sfRenderWindow *window, sound_t *sound);
 void display_player(player_t *player, sfRenderWindow *window);
 
 void check_key_up(map_t *map, player_t *player);
