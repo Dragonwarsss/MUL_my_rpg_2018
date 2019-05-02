@@ -5,7 +5,7 @@
 ## make
 ##
 
-CC	=	gcc -I include
+CC	=	gcc -I include -g3
 
 NAME	=	my_rpg
 
