@@ -95,10 +95,10 @@ void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
 void display_menu(scene_t *sc, sfRenderWindow *window, sound_t *sound);
 void display_player(player_t *player, sfRenderWindow *window);
 
-void check_key_up(map_t *map, player_t *player);
-void check_key_down(map_t *map, player_t *player);
-void check_key_left(map_t *map, player_t *player);
-void check_key_right(map_t *map, player_t *player);
+void check_key_up(map_t *map, player_t *player, sound_t **sounds);
+void check_key_down(map_t *map, player_t *player, sound_t **sounds);
+void check_key_left(map_t *map, player_t *player, sound_t **sounds);
+void check_key_right(map_t *map, player_t *player, sound_t **sounds);
 
 int collide(int block);
 
