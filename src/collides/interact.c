@@ -9,7 +9,6 @@
 
 static int is_stairs(sfVector2f pos_p, map_t *map)
 {
-    int **map1 = map->map;
     int **map2 = map->map2;
     sfVector2i pos = (sfVector2i) {pos_p.x, pos_p.y};
 
