@@ -5,7 +5,7 @@
 ## make
 ##
 
-CC	=	gcc -I include -g3
+CC	=	gcc -I include
 
 NAME	=	my_rpg
 
@@ -37,6 +37,7 @@ SRCS	=	src/main.c				\
 		src/display/display_pause.c		\
 		src/initialization/create_ll_pause.c	\
 		src/collides/interact.c			\
+		src/input/check_enter_key.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 
