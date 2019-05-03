@@ -21,6 +21,10 @@ int collide(int block)
         return (0);
     if (block >= 1300 && block <= 1304)
         return (0);
+    if (block == 1600 || block == 1601 || block == 1700 || block == 1701)
+        return (0);
+    if (block == 1800 || block == 1801 || block == 1900 || block == 1901)
+        return (0);
     if (block == 0 || block == 208 || block == 209)
         return (0);
     return (1);
