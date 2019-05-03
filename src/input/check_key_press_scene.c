@@ -29,13 +29,17 @@ void change_skin(sfEvent *event, scene_t *sc, game_t *game)
 void move_map(sfEvent *event, game_t *game)
 {
     if (event->key.code == sfKeyDown)
-        check_key_down(game->maps[game->map], game->player, game->sounds);
+        check_key_down(game->maps[game->map],
+        game->player, game->sounds, game->music);
     if (event->key.code == sfKeyUp)
-        check_key_up(game->maps[game->map], game->player, game->sounds);
+        check_key_up(game->maps[game->map],
+        game->player, game->sounds, game->music);
     if (event->key.code == sfKeyLeft)
-        check_key_left(game->maps[game->map], game->player, game->sounds);
+        check_key_left(game->maps[game->map],
+        game->player, game->sounds, game->music);
     if (event->key.code == sfKeyRight)
-        check_key_right(game->maps[game->map], game->player, game->sounds);
+        check_key_right(game->maps[game->map],
+        game->player, game->sounds, game->music);
 }
 
 void check_key_press_scene(sfEvent *event, game_t *game)
@@ -49,5 +53,6 @@ void check_key_press_scene(sfEvent *event, game_t *game)
         game->pause = 1;
     if (game->scene == sc_map1) {
         move_map(event, game);
+        check_enter_key(event, game, game->player);
     }
 }
