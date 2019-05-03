@@ -28,7 +28,6 @@ void interact(player_t *player, map_t *map, game_t *game)
 
     if ((next_map = is_stairs(player->pos_map, map))) {
         game->map += next_map;
-        printf("changing to map %d\n", game->map);
         if (next_map == -1) {
             player->pos_map = (sfVector2f) {26, 7};
             game->maps[game->map]->offset = (sfVector2f) {-11 * 16, 16};
