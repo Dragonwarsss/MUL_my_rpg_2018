@@ -107,6 +107,7 @@ void check_key_left(map_t *map, player_t *player, sound_t **sounds);
 void check_key_right(map_t *map, player_t *player, sound_t **sounds);
 
 int collide(int block);
+void interact(player_t *player, map_t *map, game_t *game);
 
 void move_map_down(sfVector2f *offset, int tile_size, player_t *player);
 void move_map_up(sfVector2f *offset, int tile_size, player_t *player);
