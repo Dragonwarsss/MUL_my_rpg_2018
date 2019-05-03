@@ -16,7 +16,6 @@ void bug_tick(t_minigame *game)
     game->bug.time = sfClock_getElapsedTime(game->bug.clock);
     game->bug.seconds = game->bug.time.microseconds / 1000000.0;
     game->bug.pos.x = game->bug.pos.x + 0.09f;
-
     if (game->bug.pos.x > 800) {
         game->bug.pos.x = -120;
         game->bug.pos.y = rand() % 400;
@@ -26,7 +25,7 @@ void bug_tick(t_minigame *game)
 void poll_events(t_minigame *game)
 {
     while (sfRenderWindow_pollEvent(game->engine.window,
-                                    &game->engine.event.event)) {
+    &game->engine.event.event)) {
         if (game->engine.event.event.type == sfEvtClosed)
             sfRenderWindow_close(game->engine.window);
 
@@ -39,11 +38,11 @@ void poll_events(t_minigame *game)
 void check_bug_is_clicked(t_minigame *game)
 {
     game->engine.mouse.position =
-        sfMouse_getPosition((sfWindow*) game->engine.window);
+    sfMouse_getPosition((sfWindow*) game->engine.window);
     if (game->engine.mouse.position.x > game->bug.pos.x &&
-        game->engine.mouse.position.x < game->bug.pos.x + 110 &&
-        game->engine.mouse.position.y > game->bug.pos.y &&
-        game->engine.mouse.position.y < game->bug.pos.y + 110) {
+    game->engine.mouse.position.x < game->bug.pos.x + 110 &&
+    game->engine.mouse.position.y > game->bug.pos.y &&
+    game->engine.mouse.position.y < game->bug.pos.y + 110) {
         game->bug.pos.x = -120;
         game->bug.pos.y = rand() % 400;
         game->score.nb_score += 1;

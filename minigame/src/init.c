@@ -13,17 +13,17 @@ int init_engine(t_minigame *game)
     game->engine.video_mode.height = 600;
     game->engine.video_mode.bitsPerPixel = 32;
     game->engine.window =
-        sfRenderWindow_create(game->engine.video_mode, "Fight the bugs !",
-        sfDefaultStyle, NULL);
+    sfRenderWindow_create(game->engine.video_mode, "Fight the bugs !",
+    sfDefaultStyle, NULL);
     game->engine.background.texture =
-        sfTexture_createFromFile("res/term.jpg", NULL);
+    sfTexture_createFromFile("res/term.jpg", NULL);
     game->engine.background.sprite = sfSprite_create();
     if (game->engine.window == 0 ||
         game->engine.background.texture == 0 ||
         game->engine.background.sprite == 0)
         return (-1);
     sfSprite_setTexture(game->engine.background.sprite,
-                        game->engine.background.texture, sfTrue);
+    game->engine.background.texture, sfTrue);
     return (0);
 }
 
