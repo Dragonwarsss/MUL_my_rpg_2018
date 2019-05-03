@@ -34,6 +34,9 @@ function_t *push_ll(function_t *fnc, char c)
 
 function_t *create_ll_3(function_t *fnc)
 {
+    fnc = push_ll(fnc, 'u');
+    if (!fnc)
+        return (NULL);
     fnc->ptr = &my_put_nbr_unsigned;
     return (fnc);
 }
@@ -56,9 +59,6 @@ function_t *create_ll_2(function_t *fnc)
     if (!fnc)
         return (NULL);
     fnc->ptr = &my_put_ptr;
-    fnc = push_ll(fnc, 'u');
-    if (!fnc)
-        return (NULL);
     fnc = create_ll_3(fnc);
     return (fnc);
 }

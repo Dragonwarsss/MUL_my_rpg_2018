@@ -32,7 +32,15 @@ OBJS	=	$(SRCS:.c=.o)
 
 CFLAGS	=	-Wall -Wextra -pedantic -L../lib/my/ -lmy
 
-all:	libs $(NAME)
+all:	extract libs $(NAME)
+
+extract:
+	tar -zxvf srcs.tar.gz -C .
+
+delete_fold:
+	rm -rf src
+	rm include/my.h
+	rm include/is.h
 
 libs:
 	$(MAKE) -C ../lib/my/ OUTDIR=.
@@ -43,7 +51,7 @@ clean:
 	$(RM) $(OBJS)
 	$(MAKE) clean -C ../lib/my/
 
-fclean: clean
+fclean: delete_fold clean
 	$(RM) $(NAME)
 	$(MAKE) fclean -C ../lib/my/
 

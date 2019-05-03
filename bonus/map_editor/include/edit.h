@@ -48,11 +48,13 @@ struct s_edit {
 void display_map(edit_t *edit, sfRenderWindow *window, int **map);
 void move_map_right(sfVector2f *offset, int tile_size);
 void move_map_left(sfVector2f *offset, int tile_size);
+void move_map_up(sfVector2f *offset, int tile_size);
+void move_map_down(sfVector2f *offset, int tile_size);
 
 void select_block(edit_t *edit, sfRenderWindow *window);
-void put_block(edit_t *edit, sfRenderWindow *window, int **map, int max_x, int max_y);
+void put_block(edit_t *edit, sfRenderWindow *window, int **map);
 sfVector2i get_pos_map(edit_t *edit, sfRenderWindow *window);
-void select_map(edit_t *edit, sfRenderWindow *window, int max_x, int max_y);
+void select_map(edit_t *edit, sfRenderWindow *window);
 void key_map(sfEvent *event, edit_t *edit);
 
 void print_help(void);
@@ -72,7 +74,7 @@ void read_maps(edit_t *edit, int fd);
 void free_maps(edit_t *edit);
 void alloc_maps(edit_t *edit);
 
-void action(edit_t *edit, sfRenderWindow *window, int max_x, int max_y);
+void action(edit_t *edit, sfRenderWindow *window);
 
 void change_text(edit_t *edit, char const *str);
 

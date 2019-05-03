@@ -44,6 +44,9 @@ $(NAME):	$(OBJS)
 	mkdir -p ../../include/
 	cp my.h ../../include/
 	cp is.h ../../include/
+	mkdir -p ../../map_editor/include/
+	cp my.h ../../map_editor/include/
+	cp is.h ../../map_editor/include/
 
 clean:
 	$(RM) $(OBJS)
