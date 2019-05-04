@@ -43,12 +43,12 @@ sprite_t *create_ll_pause(void)
     sprite_t *tmp = NULL;
 
     tmp = push_ll(NULL, "ressources/asset/pause_res.png",
-    (sfVector2f) {0, 0}, 1);
+    (sfVector2f) {640, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &stop_pause;
     tmp = push_ll(tmp, "ressources/asset/pause_menu.png",
-    (sfVector2f) {640, 0}, 1);
+    (sfVector2f) {0, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &change_scene_to_menu;
