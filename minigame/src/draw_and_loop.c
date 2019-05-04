@@ -7,13 +7,16 @@
 
 #include "minigame.h"
 
-void loop_game(t_minigame *game)
+int loop_game(t_minigame *game)
 {
     while (sfRenderWindow_isOpen(game->engine.window)) {
         draw_game(game);
-        bug_tick(game);
+        if (bug_tick(game) != 0) {
+            return (1);
+        }
         poll_events(game);
     }
+    return (0);
 }
 
 void draw_game(t_minigame *game)

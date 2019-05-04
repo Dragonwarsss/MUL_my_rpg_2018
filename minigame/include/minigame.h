@@ -102,12 +102,12 @@ int my_strcmp(char const *s1, char const *s2);
 
 void poll_events(t_minigame *game);
 void draw_game(t_minigame *game);
-void bug_tick(t_minigame *game);
+int bug_tick(t_minigame *game);
 void check_bug_is_clicked(t_minigame *game);
 int init_engine(t_minigame *game);
 int init_score(t_minigame *game);
 int init_duck(t_minigame *game);
 int init_sound(t_minigame *game);
 int init_game(t_minigame *game);
-void loop_game(t_minigame *game);
+int loop_game(t_minigame *game);
 void draw_game(t_minigame *game);

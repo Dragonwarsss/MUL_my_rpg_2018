@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "minigame.h"
 
-void bug_tick(t_minigame *game)
+int bug_tick(t_minigame *game)
 {
     if (game->bug.seconds >= 0.12) {
         sfClock_restart(game->bug.clock);
@@ -16,16 +16,20 @@ void bug_tick(t_minigame *game)
     game->bug.time = sfClock_getElapsedTime(game->bug.clock);
     game->bug.seconds = game->bug.time.microseconds / 1000000.0;
     game->bug.pos.x = game->bug.pos.x + 0.09f;
-    if (game->score.nb_score > 10) {
-        game->bug.pos.x = game->bug.pos.x + 0.1.2f;
+    if (game->score.nb_score > 5) {
+        game->bug.pos.x = game->bug.pos.x + 0.1f;
     }
-    if (game->score.nb_score > 20) {
-        game->bug.pos.x = game->bug.pos.x + 0.1.6f;
+    if (game->score.nb_score > 10) {
+        game->bug.pos.x = game->bug.pos.x + 0.05f;
+    }
+    if (game->score.nb_score == 15) {
+        return (1);
     }
     if (game->bug.pos.x > 800) {
         game->bug.pos.x = -120;
         game->bug.pos.y = rand() % 400;
     }
+    return (0);
 }
 
 void poll_events(t_minigame *game)
@@ -78,7 +82,9 @@ int main(int ac, char **av)
         my_putstr("Could not init game\n");
         return (-1);
     }
-    loop_game(&game);
+    if (loop_game(&game) != 0) {
+        my_putstr("Thank you for playing !\n");
+    }
     free_game(&game);
     return (0);
 }
