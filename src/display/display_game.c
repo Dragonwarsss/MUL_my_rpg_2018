@@ -37,7 +37,7 @@ void display_game(game_t *game, sfRenderWindow *window)
     player_event(game, window);
     if (game->text) {
         sfRenderWindow_drawSprite(window, game->utils[0]->sprite, NULL);
-        display_text(game->text, window);
+        display_text(game->text, window, game->sounds[3]);
     }
     if (game->timer->on)
         display_timer(game->timer, window);

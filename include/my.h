@@ -137,7 +137,7 @@ void display_game(game_t *game, sfRenderWindow *window);
 void display_skill_tree(game_t *game, sfRenderWindow *sfWindow);
 void display_menu(scene_t *sc, sfRenderWindow *window, sound_t *sound);
 void display_player(player_t *player, sfRenderWindow *window);
-void display_text(text_t *text, sfRenderWindow *window);
+void display_text(text_t *text, sfRenderWindow *window, sound_t *music);
 
 void check_key_up(map_t *map, player_t *player, sound_t **sounds, int music);
 void check_key_down(map_t *map, player_t *player, sound_t **sounds, int music);
