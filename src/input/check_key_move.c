@@ -20,10 +20,8 @@ void check_key_up(map_t *map, player_t *player, sound_t **sounds, int music)
     if (sfMusic_getStatus(sounds[1]->music) == sfStopped && music)
         sfMusic_play(sounds[1]->music);
     player->rect.top = 196;
-    if (map1[y][x] == 0 && map2[y][x] == 0) {
-        printf("%d %d\n", map1[y][x], map2[y][x]);
+    if (map1[y][x] == 0 && map2[y][x] == 0)
         return;
-    }
     if (!collide(map1[y][x]) && !collide(map2[y][x])) {
         move_map_up(&map->offset, 16, player);
         player->pos_map.y -= 1;
