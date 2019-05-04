@@ -17,7 +17,8 @@ static void set_map(map_t *map)
     map->rect = (sfIntRect) {0, 0, map->tile_size, map->tile_size};
     map->pos = (sfVector2f) {0, 0};
     map->sprite = sfSprite_create();
-    map->texture = sfTexture_createFromFile("asset/interior_tileset.png", NULL);
+    map->texture = sfTexture_createFromFile("ressources"
+    "/asset/interior_tileset.png", NULL);
     sfSprite_setTexture(map->sprite, map->texture, sfTrue);
     sfSprite_setScale(map->sprite, (sfVector2f) {map->scale, map->scale});
 }
@@ -55,7 +56,8 @@ game_t *init_base(game_t *game)
     init_scene(game->sc[sc_pause], create_ll_pause(), NULL);
     game->player = init_player(game->sc[1]->player);
     game->sounds = init_music();
-    if (!game->sounds)
+    game->text = init_text();
+    if (!game->sounds || !game->text)
         return (NULL);
     return (game);
 }

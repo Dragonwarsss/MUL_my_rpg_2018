@@ -5,6 +5,16 @@
 ## make
 ##
 
+CFLAGS	=	-Wall -Wextra -pedantic
+
+LDFLAGS =	-lcsfml-graphics -lcsfml-audio
+
+DEBUG	?= 0
+
+ifeq ($(DEBUG), 1)
+	CFLAGS += -g3
+endif
+
 CC	=	gcc -I include
 
 NAME	=	my_rpg
@@ -17,6 +27,7 @@ SRCS	=	src/main.c				\
 		src/initialization/create_ll_menu.c	\
 		src/initialization/init_player.c	\
 		src/initialization/init_music.c		\
+		src/initialization/init_text.c		\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
@@ -29,6 +40,7 @@ SRCS	=	src/main.c				\
 		src/display/display_skill_tree.c	\
 		src/display/display_game.c		\
 		src/display/display_player.c		\
+		src/display/display_text.c		\
 		src/initialization/create_ll_options.c	\
 		src/opt_music.c				\
 		src/input/check_key_move.c		\
@@ -38,15 +50,16 @@ SRCS	=	src/main.c				\
 		src/initialization/create_ll_pause.c	\
 		src/collides/interact.c			\
 		src/input/check_enter_key.c		\
+		src/utils/my_strncpy.c			\
+		src/utils/my_strlen.c			\
+		src/utils/my_putstr.c			\
 
 OBJS	=	$(SRCS:.c=.o)
-
-CFLAGS	=	-Wall -Wextra -pedantic -lcsfml-graphics -lcsfml-audio
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-		$(CC) -o $(NAME) $(OBJS) $(CFLAGS)
+		$(CC) -o $(NAME) $(OBJS) $(CFLAGS) $(LDFLAGS)
 clean:
 	$(RM) $(OBJS)
 

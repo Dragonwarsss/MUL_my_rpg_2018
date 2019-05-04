@@ -19,9 +19,9 @@ sound_t **init_music(void)
         if (!sound[i])
             return (NULL);
     }
-    sound[0]->music = sfMusic_createFromFile("sound/menu_theme.ogg");
-    sound[1]->music = sfMusic_createFromFile("sound/walk.ogg");
-    sound[2]->music = sfMusic_createFromFile("sound/collide.ogg");
+    sound[0]->music = sfMusic_createFromFile("ressources/sound/menu_theme.ogg");
+    sound[1]->music = sfMusic_createFromFile("ressources/sound/walk.ogg");
+    sound[2]->music = sfMusic_createFromFile("ressources/sound/collide.ogg");
     sound[3] = NULL;
     if (!sound[0]->music || !sound[1]->music || !sound[2]->music) {
         my_puterr("Missing ressources in sound/\n");

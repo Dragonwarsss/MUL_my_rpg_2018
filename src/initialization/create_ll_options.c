@@ -35,12 +35,13 @@ sprite_t *create_ll_options(void)
 {
     sprite_t *tmp = NULL;
 
-    tmp = push_ll(NULL, "asset/opt_music_icon.png",
+    tmp = push_ll(NULL, "ressources/asset/opt_music_icon.png",
     (sfVector2f) {390, 580}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &put_music_or_not;
-    tmp = push_ll(tmp, "asset/opt_bg_template.png", (sfVector2f) {0, 0}, 0);
+    tmp = push_ll(tmp, "ressources/asset/opt_bg_template.png",
+    (sfVector2f) {0, 0}, 0);
     if (!tmp)
         return (NULL);
     return (tmp);

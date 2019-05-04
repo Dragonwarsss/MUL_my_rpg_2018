@@ -35,14 +35,14 @@ static void *push_ll(player_t *next, char *path, int id)
 
 void *create_ll_char(void)
 {
-    player_t *tmp = push_ll(NULL, "asset/characters/char1.png", 1);
+    player_t *tmp = push_ll(NULL, "ressources/asset/characters/char1.png", 1);
 
-    tmp = push_ll(tmp, "asset/characters/char2.png", 2);
-    tmp = push_ll(tmp, "asset/characters/char3.png", 3);
-    tmp = push_ll(tmp, "asset/characters/char4.png", 4);
-    tmp = push_ll(tmp, "asset/characters/char5.png", 5);
-    tmp = push_ll(tmp, "asset/characters/char6.png", 6);
-    tmp = push_ll(tmp, "asset/characters/char7.png", 7);
-    tmp = push_ll(tmp, "asset/characters/char8.png", 8);
+    tmp = push_ll(tmp, "ressources/asset/characters/char2.png", 2);
+    tmp = push_ll(tmp, "ressources/asset/characters/char3.png", 3);
+    tmp = push_ll(tmp, "ressources/asset/characters/char4.png", 4);
+    tmp = push_ll(tmp, "ressources/asset/characters/char5.png", 5);
+    tmp = push_ll(tmp, "ressources/asset/characters/char6.png", 6);
+    tmp = push_ll(tmp, "ressources/asset/characters/char7.png", 7);
+    tmp = push_ll(tmp, "ressources/asset/characters/char8.png", 8);
     return (tmp);
 }
