@@ -16,6 +16,12 @@ void bug_tick(t_minigame *game)
     game->bug.time = sfClock_getElapsedTime(game->bug.clock);
     game->bug.seconds = game->bug.time.microseconds / 1000000.0;
     game->bug.pos.x = game->bug.pos.x + 0.09f;
+    if (game->score.nb_score > 10) {
+        game->bug.pos.x = game->bug.pos.x + 0.1.2f;
+    }
+    if (game->score.nb_score > 20) {
+        game->bug.pos.x = game->bug.pos.x + 0.1.6f;
+    }
     if (game->bug.pos.x > 800) {
         game->bug.pos.x = -120;
         game->bug.pos.y = rand() % 400;
