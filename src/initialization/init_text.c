@@ -24,18 +24,8 @@ static text_t *push_ll(text_t *next, char *msg, int end, sfFont *font)
     return (tmp);
 }
 
-text_t *init_text(void)
+static text_t *init_text_2ndpart(text_t *tmp, sfFont *font)
 {
-    text_t *tmp = NULL;
-    sfFont *font = sfFont_createFromFile("ressources/font/font.ttf");
-
-    tmp = push_ll(tmp, "You can learn new skills when you end a project.", 1, font);
-    tmp = push_ll(tmp, "Press I to see your skill tree.", 0, font);
-    tmp = push_ll(tmp, "You can learn skills by upgrading tools via"
-    " skill tree.", 0, font);
-    tmp = push_ll(tmp, "Some bugs are resistant to some tools, so use"
-    " efficient tools to defeat them.", 0, font);
-    tmp = push_ll(tmp, "Fight with valgring and gdb tools to defeat bugs.", 0, font);
     tmp = push_ll(tmp, "To complete projects, go to a computer a"
     " press ENTER.", 0, font);
     tmp = push_ll(tmp, "Don't waste too many time there, it increase a"
@@ -47,5 +37,23 @@ text_t *init_text(void)
     tmp = push_ll(tmp, "Your goal is to beat every project of the 1st"
     " year.", 0, font);
     tmp = push_ll(tmp, "Welcome to EPITECH the game !", 0, font);
+    return (tmp);
+}
+
+text_t *init_text(void)
+{
+    text_t *tmp = NULL;
+    sfFont *font = sfFont_createFromFile("ressources/font/font.ttf");
+
+    tmp = push_ll(tmp, "You can learn new skills when you end a project.",
+    1, font);
+    tmp = push_ll(tmp, "Press I to see your skill tree.", 0, font);
+    tmp = push_ll(tmp, "You can learn skills by upgrading tools via"
+    " skill tree.", 0, font);
+    tmp = push_ll(tmp, "Some bugs are resistant to some tools, so use"
+    " efficient tools to defeat them.", 0, font);
+    tmp = push_ll(tmp, "Fight with valgring and gdb tools to defeat bugs.",
+    0, font);
+    tmp = init_text_2ndpart(tmp, font);
     return (tmp);
 }
