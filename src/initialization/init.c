@@ -57,6 +57,7 @@ game_t *init_base(game_t *game)
     game->player = init_player(game->sc[1]->player);
     game->sounds = init_music();
     game->text = init_text();
+    game->utils = init_utils();
     if (!game->sounds || !game->text)
         return (NULL);
     return (game);

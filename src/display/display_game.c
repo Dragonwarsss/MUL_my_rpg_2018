@@ -15,9 +15,11 @@ void player_event(UNUSED game_t *game, UNUSED sfRenderWindow *window)
 
 void display_game(game_t *game, sfRenderWindow *window)
 {
-    if (game->text)
-        display_text(game->text, window);
     display_map(game->maps[game->map], window);
     display_player(game->player, window);
     player_event(game, window);
+    if (game->text) {
+        sfRenderWindow_drawSprite(window, game->utils[0]->sprite, NULL);
+        display_text(game->text, window);
+    }
 }
