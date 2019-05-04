@@ -18,6 +18,8 @@ void check_enter_key(sfEvent *event, game_t *game, player_t *player)
             return;
         }
         game->text = game->text->next;
+        if (!game->text)
+            start_clock(game->timer);
         return;
     }
     if (event->key.code == sfKeyReturn && player->rect.top == 196 &&
