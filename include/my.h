@@ -80,6 +80,7 @@ struct s_game {
     screen_id_t scene;
     sound_t **sounds;
     text_t *text;
+    sprite_t **utils;
     int map;
     int quit;
     int music;
@@ -96,6 +97,7 @@ sprite_t *create_ll_pause(void);
 player_t *init_player(player_t *ptr);
 sound_t **init_music(void);
 text_t *init_text(void);
+sprite_t **init_utils(void);
 
 void *create_ll_char(void);
 

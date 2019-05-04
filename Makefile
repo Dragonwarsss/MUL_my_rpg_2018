@@ -28,6 +28,7 @@ SRCS	=	src/main.c				\
 		src/initialization/init_player.c	\
 		src/initialization/init_music.c		\
 		src/initialization/init_text.c		\
+		src/initialization/init_utils.c		\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
