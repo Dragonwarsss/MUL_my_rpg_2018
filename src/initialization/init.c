@@ -58,7 +58,8 @@ game_t *init_base(game_t *game)
     game->sounds = init_music();
     game->text = init_text();
     game->utils = init_utils();
-    if (!game->sounds || !game->text)
+    game->timer = init_timer();
+    if (!game->sounds || !game->text || !game->timer || !game->utils)
         return (NULL);
     return (game);
 }
