@@ -7,7 +7,7 @@
 
 CFLAGS	=	-Wall -Wextra -pedantic
 
-LDFLAGS =	-lcsfml-graphics -lcsfml-audio
+LDFLAGS =	-lcsfml-graphics -lcsfml-audio -lcsfml-system
 
 DEBUG	?= 0
 
@@ -29,6 +29,7 @@ SRCS	=	src/main.c				\
 		src/initialization/init_music.c		\
 		src/initialization/init_text.c		\
 		src/initialization/init_utils.c		\
+		src/initialization/init_timer.c		\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
@@ -54,6 +55,7 @@ SRCS	=	src/main.c				\
 		src/utils/my_strncpy.c			\
 		src/utils/my_strlen.c			\
 		src/utils/my_putstr.c			\
+		src/timer/start_clock.c			\
 
 OBJS	=	$(SRCS:.c=.o)
 

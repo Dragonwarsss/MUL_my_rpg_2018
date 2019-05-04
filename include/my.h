@@ -5,6 +5,7 @@
 ** my.h
 */
 
+#include <SFML/System.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include "macros.h"
@@ -33,7 +34,16 @@ typedef enum scene_id {
 } screen_id_t;
 
 struct s_timer {
+    sfClock *clock;
     sfTime time;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfSprite *font;
+    sfTexture *texture_font;
+    sfIntRect rect;
+    int on;
+    int timer;
+    int max_time;
 };
 
 struct s_text {
@@ -81,6 +91,7 @@ struct s_game {
     sound_t **sounds;
     text_t *text;
     sprite_t **utils;
+    mtimer_t *timer;
     int map;
     int quit;
     int music;
@@ -98,6 +109,7 @@ player_t *init_player(player_t *ptr);
 sound_t **init_music(void);
 text_t *init_text(void);
 sprite_t **init_utils(void);
+mtimer_t *init_timer(void);
 
 void *create_ll_char(void);
 
@@ -113,6 +125,8 @@ void change_scene_to_settings(game_t *game, sprite_t *spr);
 void change_scene_to_menu(game_t *game, sprite_t *spr);
 void quit_game(game_t *game, sprite_t *spr);
 void put_pause(game_t *game, sfRenderWindow *window);
+
+void start_clock(mtimer_t *timer);
 
 void select_scene(game_t *game, sfRenderWindow *window);
 
