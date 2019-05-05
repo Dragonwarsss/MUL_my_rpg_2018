@@ -7,21 +7,23 @@
 
 #include "my.h"
 
-static void delete_enn(ennemies_t *tmp, ennemies_t *prev,
+static int delete_enn(ennemies_t *tmp, ennemies_t *prev,
 ennemies_t *next, invader_t *invader)
 {
     if (tmp->prev && tmp->next) {
         tmp->next->prev = tmp->prev;
         tmp->prev->next = tmp->next;
     }
-    if (!prev && !next)
-        invader->ennemies = NULL;
+    if (!prev && !next) {
+        return (1);
+    }
     if (!prev && next) {
         invader->ennemies = invader->ennemies->next;
         invader->ennemies->prev = NULL;
     }
     if (!next && prev)
         tmp = NULL;
+    return (0);
 }
 
 void deal_damage_to_ennemy(ennemies_t *enn, sfRenderWindow *window,
@@ -33,10 +35,13 @@ invader_t *invader)
     for (; tmp; tmp = tmp->next) {
         tmp->pos = sfSprite_getPosition(tmp->sprite);
         if (pm.x >= tmp->pos.x && pm.x <= tmp->pos.x + tmp->rect.width &&
-        pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height)
+            pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height)
             tmp->hp -= 3;
         if (tmp->hp <= 0)
-            delete_enn(tmp, tmp->next, tmp->prev, invader);
+            if (delete_enn(tmp, tmp->next, tmp->prev, invader)) {
+                invader->ennemies = NULL;
+                return;
+            }
     }
 }
 

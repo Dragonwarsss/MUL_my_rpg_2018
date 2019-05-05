@@ -26,6 +26,8 @@ void check_enter_key(sfEvent *event, game_t *game, player_t *player)
         game->maps[game->map]->map2[pos.y - 1][pos.x] == 1406)
         game->scene = sc_invader;
     if (event->key.code == sfKeyReturn && player->rect.top == 196 &&
-        game->maps[game->map]->map2[pos.y - 1][pos.x] == 617)
-        my_putstr("key pressed and distributor in front of player\n");
+    game->maps[game->map]->map2[pos.y - 1][pos.x] == 617) {
+        sfClock_restart(game->timer->clock);
+        game->text = create_ll_text_restart();
+    }
 }
