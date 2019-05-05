@@ -7,7 +7,8 @@
 
 #include "my.h"
 
-void exec_mouse_button_scene(sfEvent *event, game_t *game, sfRenderWindow *window)
+void exec_mouse_button_scene(sfEvent *event, game_t *game,
+sfRenderWindow *window)
 {
     if (game->scene == sc_menu)
         manage_menu_input(game, window);
