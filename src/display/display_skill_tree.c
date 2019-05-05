@@ -25,7 +25,7 @@ void manage_skill_input(game_t *game, sfRenderWindow *window)
             sfSprite_setTextureRect(tmp->sprite, tmp->rect);
             game->invader->weapons->texture = tmp->texture;
             sfSprite_setTexture(game->invader->weapons->sprite,
-                                tmp->texture, sfFalse);
+            tmp->texture, sfFalse);
         }
         tmp = tmp->next;
         level += 1;
