@@ -42,7 +42,7 @@ void init_weapon(invader_t *tmp)
 
 void init_ennemies(invader_t *tmp, int level)
 {
-    int enn = rand() % (int)(level * 1.25) + 2;
+    int enn = rand() % (int)(level * 3.25) + 2;
 
     tmp->ennemies = push_ll_enn(NULL, ENNEMIES, level);
     for (int i = 0; i != enn; i += 1)
@@ -53,9 +53,9 @@ invader_t *init_invader(UNUSED int level)
 {
     invader_t *tmp = malloc(sizeof(invader_t));
 
-
     if (!tmp)
         return (NULL);
+    tmp->level = 1;
     tmp->weapons = NULL;
     init_weapon(tmp);
     init_ennemies(tmp, level);
