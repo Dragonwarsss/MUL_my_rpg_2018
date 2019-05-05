@@ -20,8 +20,8 @@ mtimer_t *init_timer(void)
     if (!timer->sprite || !timer->texture)
         return (NULL);
     timer->font = sfSprite_create();
-    timer->texture_font = sfTexture_createFromFile("ressources/asset/timerfont.png",
-    NULL);
+    timer->texture_font = sfTexture_createFromFile("ressources/asset/"
+    "timerfont.png", NULL);
     if (!timer->font || !timer->texture_font)
         return (NULL);
     sfSprite_setTexture(timer->sprite, timer->texture, sfTrue);

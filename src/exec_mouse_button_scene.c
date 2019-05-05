@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-void exec_mouse_button_scene(game_t *game, sfRenderWindow *window)
+void exec_mouse_button_scene(sfEvent *event, game_t *game, sfRenderWindow *window)
 {
     if (game->scene == sc_menu)
         manage_menu_input(game, window);
@@ -15,4 +15,6 @@ void exec_mouse_button_scene(game_t *game, sfRenderWindow *window)
         manage_menu_input(game, window);
     if (game->pause == 1)
         manage_pause_input(game, window);
+    if (game->scene == sc_invader)
+        check_key_invader(event, game, window);
 }

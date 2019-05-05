@@ -59,6 +59,7 @@ game_t *init_base(game_t *game)
     game->text = init_text();
     game->utils = init_utils();
     game->timer = init_timer();
+    game->invader = init_invader(1);
     if (!game->sounds || !game->text || !game->timer || !game->utils)
         return (NULL);
     return (game);

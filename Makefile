@@ -25,11 +25,13 @@ SRCS	=	src/main.c				\
 		src/initialization/init.c		\
 		src/initialization/load_map.c		\
 		src/initialization/create_ll_menu.c	\
+		src/initialization/create_ll_ennemies.c	\
 		src/initialization/init_player.c	\
 		src/initialization/init_music.c		\
 		src/initialization/init_text.c		\
 		src/initialization/init_utils.c		\
 		src/initialization/init_timer.c		\
+		src/initialization/init_invader.c	\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
@@ -43,6 +45,8 @@ SRCS	=	src/main.c				\
 		src/display/display_game.c		\
 		src/display/display_player.c		\
 		src/display/display_text.c		\
+		src/display/display_invader.c		\
+		src/display/display_ennemies.c		\
 		src/initialization/create_ll_options.c	\
 		src/opt_music.c				\
 		src/input/check_key_move.c		\
@@ -56,6 +60,7 @@ SRCS	=	src/main.c				\
 		src/utils/my_strlen.c			\
 		src/utils/my_putstr.c			\
 		src/timer/start_clock.c			\
+		src/input/check_key_invader.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "my.h"
 
 void event_handler(sfEvent *event, sfRenderWindow *window, game_t UNUSED *game)
@@ -14,7 +16,7 @@ void event_handler(sfEvent *event, sfRenderWindow *window, game_t UNUSED *game)
     if (event->type == sfEvtClosed)
         sfRenderWindow_close(window);
     if (event->type == sfEvtMouseButtonPressed)
-        exec_mouse_button_scene(game, window);
+        exec_mouse_button_scene(event, game, window);
     if (event->type == sfEvtKeyPressed)
         check_key_press_scene(event, game);
 }
@@ -47,6 +49,7 @@ int main(int UNUSED argc, char UNUSED **argv, char **envp)
 {
     int stat = 0;
 
+    srand(time(NULL));
     if (!envp[0])
         return (84);
     stat = gameloop();

@@ -12,7 +12,6 @@
 void display_timer(mtimer_t *timer, sfRenderWindow *window)
 {
     int width;
-    float new_width;
 
     timer->time = sfClock_getElapsedTime(timer->clock);
     timer->timer = sfTime_asSeconds(timer->time);

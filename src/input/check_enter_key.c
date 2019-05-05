@@ -24,7 +24,7 @@ void check_enter_key(sfEvent *event, game_t *game, player_t *player)
     }
     if (event->key.code == sfKeyReturn && player->rect.top == 196 &&
         game->maps[game->map]->map2[pos.y - 1][pos.x] == 1406)
-        my_putstr("key pressed and computer in front of player\n");
+        game->scene = sc_invader;
     if (event->key.code == sfKeyReturn && player->rect.top == 196 &&
         game->maps[game->map]->map2[pos.y - 1][pos.x] == 617)
         my_putstr("key pressed and distributor in front of player\n");
