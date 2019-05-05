@@ -32,6 +32,8 @@ SRCS	=	src/main.c				\
 		src/initialization/init_utils.c		\
 		src/initialization/init_timer.c		\
 		src/initialization/init_invader.c	\
+		src/initialization/create_ll_text_end.c	\
+		src/initialization/create_ll_text_restart.c	\
 		src/exec_mouse_button_scene.c		\
 		src/input/check_key_press_scene.c	\
 		src/input/manage_menu_input.c		\
@@ -61,6 +63,8 @@ SRCS	=	src/main.c				\
 		src/utils/my_putstr.c			\
 		src/timer/start_clock.c			\
 		src/input/check_key_invader.c		\
+		src/event/project_end.c			\
+
 
 OBJS	=	$(SRCS:.c=.o)
 
