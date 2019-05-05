@@ -36,6 +36,6 @@ sprite_t **init_utils(void)
     if (!tmp)
         return (NULL);
     tmp[2] = NULL;
-    tmp[0] = init_sprite("ressources/asset/text_box.png", 0);
+    tmp[0] = init_sprite(TEXTBOX, 0);
     return (tmp);
 }

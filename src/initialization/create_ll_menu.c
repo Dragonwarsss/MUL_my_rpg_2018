@@ -35,17 +35,15 @@ sprite_t *create_ll_menu(void)
 {
     sprite_t *tmp;
 
-    tmp = push_ll(NULL, "ressources/asset/play.jpg", (sfVector2f) {0, 0}, 1);
+    tmp = push_ll(NULL, PLAY, (sfVector2f) {0, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &change_scene_to_play;
-    tmp = push_ll(tmp, "ressources/asset/options.jpg",
-    (sfVector2f) {1920 / 3, 0}, 1);
+    tmp = push_ll(tmp, OPTIONS, (sfVector2f) {1920 / 3, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &change_scene_to_settings;
-    tmp = push_ll(tmp, "ressources/asset/quit.jpg",
-    (sfVector2f) {1920 / 3 * 2, 0}, 1);
+    tmp = push_ll(tmp, QUIT, (sfVector2f) {1920 / 3 * 2, 0}, 1);
     if (!tmp)
         return (NULL);
     tmp->ptr = &quit_game;
