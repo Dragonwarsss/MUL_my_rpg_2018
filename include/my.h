@@ -127,12 +127,15 @@ game_t *init_game(void);
 sprite_t *create_ll_menu(void);
 sprite_t *create_ll_options(void);
 sprite_t *create_ll_pause(void);
+text_t *create_ll_text_end(void);
+text_t *create_ll_text_restart(void);
 player_t *init_player(player_t *ptr);
 sound_t **init_music(void);
 text_t *init_text(void);
 sprite_t **init_utils(void);
 mtimer_t *init_timer(void);
 invader_t *init_invader(int level);
+void init_ennemies(invader_t *tmp, int level);
 
 ennemies_t *push_ll_enn(ennemies_t *next, char *path, int level);
 
@@ -182,6 +185,8 @@ void move_map_down(sfVector2f *offset, int tile_size, player_t *player);
 void move_map_up(sfVector2f *offset, int tile_size, player_t *player);
 void move_map_left(sfVector2f *offset, int tile_size, player_t *player);
 void move_map_right(sfVector2f *offset, int tile_size, player_t *player);
+
+void project_end(game_t *game, invader_t *invader);
 
 int my_strlen(char *str);
 char *my_strncpy(char *str1, char *str2, int n);
