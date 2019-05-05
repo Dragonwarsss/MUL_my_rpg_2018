@@ -22,4 +22,5 @@ void project_end(game_t *game, invader_t *invader)
         sfClock_restart(game->timer->clock);
         game->timer->on = 0;
     }
+    sfText_setString(game->text_level, my_itoa(invader->level));
 }

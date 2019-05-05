@@ -8,6 +8,12 @@
 #include <stdio.h>
 #include "my.h"
 
+static void check_skill(sfEvent *event, game_t *game)
+{
+    if (event->key.code == sfKeyI)
+        game->scene = sc_skill_tree;
+}
+
 void check_enter_key(sfEvent *event, game_t *game, player_t *player)
 {
     sfVector2i pos = (sfVector2i) {player->pos_map.x, player->pos_map.y};
@@ -30,4 +36,5 @@ void check_enter_key(sfEvent *event, game_t *game, player_t *player)
         sfClock_restart(game->timer->clock);
         game->text = create_ll_text_restart();
     }
+    check_skill(event, game);
 }

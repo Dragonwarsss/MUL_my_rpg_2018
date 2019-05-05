@@ -60,6 +60,11 @@ game_t *init_base(game_t *game)
     game->utils = init_utils();
     game->timer = init_timer();
     game->invader = init_invader(1);
+    game->skills = create_ll_skill();
+    game->text_level = sfText_create();
+    sfText_setFont(game->text_level, sfFont_createFromFile(FONT));
+    sfText_setString(game->text_level, "1");
+    sfText_setPosition(game->text_level, (sfVector2f) {1880, 0});
     if (!game->sounds || !game->text || !game->timer || !game->utils)
         return (NULL);
     return (game);

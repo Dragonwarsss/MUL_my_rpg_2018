@@ -24,6 +24,8 @@ typedef struct s_timer mtimer_t;
 typedef struct s_text text_t;
 typedef struct s_invader invader_t;
 typedef struct s_ennemies ennemies_t;
+typedef struct s_skill skill_t;
+typedef struct s_weapons weapons_t;
 
 typedef enum scene_id {
     sc_menu = 0,
@@ -35,6 +37,21 @@ typedef enum scene_id {
     sc_pause = 6,
     sc_invader = 7,
 } screen_id_t;
+
+struct s_skill {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfIntRect rect;
+    int lvl_to_unlock;
+    int on;
+    skill_t *next;
+};
+
+struct s_weapons {
+    int id;
+    int dmg;
+};
 
 struct s_ennemies {
     sfSprite *sprite;
@@ -49,6 +66,7 @@ struct s_ennemies {
 struct s_invader {
     ennemies_t *ennemies;
     sprite_t *weapons;
+    weapons_t *tools;
     int curr_enn;
     int max_enn;
     int level;
@@ -114,6 +132,8 @@ struct s_game {
     sprite_t **utils;
     mtimer_t *timer;
     invader_t *invader;
+    sprite_t *skills;
+    sfText *text_level;
     int map;
     int quit;
     int music;
@@ -129,6 +149,7 @@ sprite_t *create_ll_options(void);
 sprite_t *create_ll_pause(void);
 text_t *create_ll_text_end(void);
 text_t *create_ll_text_restart(void);
+sprite_t *create_ll_skill(void);
 player_t *init_player(player_t *ptr);
 sound_t **init_music(void);
 text_t *init_text(void);
@@ -145,6 +166,7 @@ void exec_mouse_button_scene(sfEvent *event,
 game_t *game, sfRenderWindow *window);
 void check_key_press_scene(sfEvent *event, game_t *game);
 void manage_menu_input(game_t *game, sfRenderWindow *window);
+void manage_skill_input(game_t *game, sfRenderWindow *window);
 void manage_pause_input(game_t *game, sfRenderWindow *window);
 void check_enter_key(sfEvent *event, game_t *game, player_t *player);
 
@@ -191,5 +213,6 @@ void project_end(game_t *game, invader_t *invader);
 int my_strlen(char *str);
 char *my_strncpy(char *str1, char *str2, int n);
 void my_putstr(char *str);
+char *my_itoa(int i);
 
 #endif

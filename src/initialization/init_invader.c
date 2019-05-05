@@ -21,7 +21,7 @@ static sprite_t *push_ll_weapon(sprite_t *next, char *path, sfVector2f pos)
         return (NULL);
     sfSprite_setTexture(tmp->sprite, tmp->texture, sfTrue);
     tmp->rect = sfSprite_getTextureRect(tmp->sprite);
-    tmp->rect.width /= 4;
+    tmp->rect.width /= 2;
     sfSprite_setTextureRect(tmp->sprite, tmp->rect);
     sfSprite_setPosition(tmp->sprite, pos);
     sfSprite_scale(tmp->sprite, (sfVector2f) {3, 3});
@@ -35,9 +35,10 @@ void init_weapon(invader_t *tmp)
     sfVector2f pos = (sfVector2f) {0, 0};
 
     tmp->weapons = malloc(sizeof(sprite_t));
-    tmp->weapons = push_ll_weapon(NULL, VALGRIND, pos);
+    tmp->weapons = push_ll_weapon(NULL, VALGRINDLV1, pos);
+    tmp->weapons->rect.left = 48;
+    sfSprite_setTextureRect(tmp->weapons->sprite, tmp->weapons->rect);
     pos = (sfVector2f) {200, 0};
-    tmp->weapons = push_ll_weapon(tmp->weapons, GDB, pos);
 }
 
 void init_ennemies(invader_t *tmp, int level)

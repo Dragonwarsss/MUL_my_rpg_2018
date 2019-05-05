@@ -19,6 +19,8 @@ void event_handler(sfEvent *event, sfRenderWindow *window, game_t UNUSED *game)
         exec_mouse_button_scene(event, game, window);
     if (event->type == sfEvtKeyPressed)
         check_key_press_scene(event, game);
+    if (event->type == sfEvtMouseButtonPressed && game->scene == sc_skill_tree)
+        manage_skill_input(game, window);
 }
 
 int gameloop(void)
@@ -49,7 +51,7 @@ int main(int UNUSED argc, char UNUSED **argv, char **envp)
 {
     int stat = 0;
 
-    srand(time(NULL));
+    srand((int)&stat);
     if (!envp[0])
         return (84);
     stat = gameloop();

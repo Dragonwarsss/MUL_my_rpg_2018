@@ -5,7 +5,7 @@
 ## make
 ##
 
-CFLAGS	=	-Wall -Wextra -pedantic
+CFLAGS	=	-Wall -Wextra -pedantic -Wno-pointer-to-int-cast
 
 LDFLAGS =	-lcsfml-graphics -lcsfml-audio -lcsfml-system
 
@@ -26,6 +26,7 @@ SRCS	=	src/main.c				\
 		src/initialization/load_map.c		\
 		src/initialization/create_ll_menu.c	\
 		src/initialization/create_ll_ennemies.c	\
+		src/initialization/create_ll_skill.c	\
 		src/initialization/init_player.c	\
 		src/initialization/init_music.c		\
 		src/initialization/init_text.c		\
@@ -61,6 +62,8 @@ SRCS	=	src/main.c				\
 		src/utils/my_strncpy.c			\
 		src/utils/my_strlen.c			\
 		src/utils/my_putstr.c			\
+		src/utils/strtol.c			\
+		src/utils/ltostr.c			\
 		src/timer/start_clock.c			\
 		src/input/check_key_invader.c		\
 		src/event/project_end.c			\
