@@ -23,4 +23,5 @@ void select_scene(game_t *game, sfRenderWindow *window)
         display_skill_tree(game, window);
     if (game->scene == sc_invader)
         display_invader(game->invader, window);
+    project_end(game, game->invader);
 }
