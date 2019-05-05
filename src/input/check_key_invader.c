@@ -7,22 +7,26 @@
 
 #include "my.h"
 
-static int delete_enn(ennemies_t *tmp, ennemies_t *prev,
-ennemies_t *next, invader_t *invader)
+static int delete_enn(ennemies_t *tmp, ennemies_t *prev, ennemies_t *next,
+invader_t *inv)
 {
-    if (tmp->prev && tmp->next) {
-        tmp->next->prev = tmp->prev;
-        tmp->prev->next = tmp->next;
+    if (prev && next) {
+        next->prev = tmp->prev;
+        prev->next = tmp->next;
+        return (0);
     }
     if (!prev && !next) {
         return (1);
     }
     if (!prev && next) {
-        invader->ennemies = invader->ennemies->next;
-        invader->ennemies->prev = NULL;
+        inv->ennemies = next;
+        inv->ennemies->prev = NULL;
+        return (0);
     }
-    if (!next && prev)
-        tmp = NULL;
+    if (prev && !next) {
+        prev->next = NULL;
+        return (0);
+    }
     return (0);
 }
 
@@ -37,11 +41,12 @@ invader_t *invader)
         if (pm.x >= tmp->pos.x && pm.x <= tmp->pos.x + tmp->rect.width &&
             pm.y >= tmp->pos.y && pm.y <= tmp->pos.y + tmp->rect.height)
             tmp->hp -= 3;
-        if (tmp->hp <= 0)
-            if (delete_enn(tmp, tmp->next, tmp->prev, invader)) {
+        if (tmp->hp <= 0) {
+            if (delete_enn(tmp, tmp->prev, tmp->next, invader)) {
                 invader->ennemies = NULL;
                 return;
             }
+        }
     }
 }
 
