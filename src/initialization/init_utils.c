@@ -20,6 +20,7 @@ static sprite_t *init_sprite(char *asset, int button)
         return (NULL);
     sfSprite_setTexture(tmp->sprite, tmp->texture, sfTrue);
     tmp->next = NULL;
+    sfSprite_setPosition(tmp->sprite, (sfVector2f) {615, 935});
     if (button) {
         tmp->rect = sfSprite_getTextureRect(tmp->sprite);
         tmp->rect.width /= 2;

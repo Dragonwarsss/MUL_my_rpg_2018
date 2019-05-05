@@ -20,7 +20,7 @@ static text_t *push_ll(text_t *next, char *msg, int end, sfFont *font)
     tmp->end = end;
     sfText_setFont(tmp->text, font);
     sfText_setString(tmp->text, msg);
-    sfText_setPosition(tmp->text, (sfVector2f) {20, 20});
+    sfText_setPosition(tmp->text, (sfVector2f) {635, 955});
     tmp->next = next;
     return (tmp);
 }
