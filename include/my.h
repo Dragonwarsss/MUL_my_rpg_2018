@@ -42,8 +42,8 @@ struct s_timer {
     sfTexture *texture_font;
     sfIntRect rect;
     int on;
-    int timer;
-    int max_time;
+    float timer;
+    float max_time;
 };
 
 struct s_text {

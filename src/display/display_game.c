@@ -11,14 +11,15 @@
 
 void display_timer(mtimer_t *timer, sfRenderWindow *window)
 {
+    int width;
+    float new_width;
+
     timer->time = sfClock_getElapsedTime(timer->clock);
     timer->timer = sfTime_asSeconds(timer->time);
-    timer->rect = sfSprite_getTextureRect(timer->sprite);
+    timer->rect = sfSprite_getTextureRect(timer->font);
     if (timer->timer != 0) {
-        timer->rect.width = (timer->timer * 100) / timer->max_time;
-//        printf("percent: %d\n", timer->rect.width);
-//        printf("elapsed time: %d\n", timer->timer);
-//        timer->rect = sfSprite_getTextureRect(timer->sprite);
+        width = ((float)timer->timer * 100.0) / (float)timer->max_time;
+        timer->rect.width = (float)timer->rect.width * ((float)width / 100.0);
         sfSprite_setTextureRect(timer->sprite, timer->rect);
         sfRenderWindow_drawSprite(window, timer->font, NULL);
         sfRenderWindow_drawSprite(window, timer->sprite, NULL);
